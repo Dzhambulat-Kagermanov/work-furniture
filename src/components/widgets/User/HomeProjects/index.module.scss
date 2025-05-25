@@ -1,0 +1,30 @@
+.wrapper {
+	padding: 40px 20px;
+	h2 {
+		font-size: 32px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+}
+.design.btn {
+	margin: 30px auto 0 auto;
+	font-size: 20px;
+}
+
+@media screen and (min-width: 769px) {
+	.wrapper {
+		h2 {
+			margin-bottom: 60px;
+			font-size: 42px;
+		}
+	}
+	.design.btn {
+		margin: 50px auto 0 auto;
+		font-size: 26px;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding: var(--modules-gap);
+	}
+}
