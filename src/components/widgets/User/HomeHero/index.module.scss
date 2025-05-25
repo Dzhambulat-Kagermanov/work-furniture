@@ -1,17 +1,16 @@
 .wrapper {
 	background-color: var(--white100);
-	padding: var(--modules-gap) 0;
+	padding: 0;
 }
 .container {
 	background-image: url('/images/User/Home/Hero/background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 772px;
-	padding: 160px 60px 0 0;
+	padding-top: 60px;
+	padding-bottom: 100px;
 }
 .content {
 	padding: 70px 48px 80px 48px;
-	max-width: 734px;
 	margin-left: auto;
 	background-color: var(--white200);
 	color: var(--blackBase);
@@ -34,4 +33,17 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	column-gap: 40px;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding: var(--modules-gap);
+	}
+	.content {
+		max-width: 734px;
+	}
+	.container {
+		height: 772px;
+		padding: 160px 60px 0 0;
+	}
 }
