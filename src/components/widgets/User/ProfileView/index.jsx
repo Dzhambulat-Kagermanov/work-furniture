@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import cls from './index.module.scss'
 import { UiInput } from '@shared/ui/UiInput'
-import { ShieldUser } from 'lucide-react'
+import { Lock, ShieldUser } from 'lucide-react'
 import { UiPasswordInput } from '@shared/ui/UiPasswordInput'
 import { UiButton } from '@shared/ui/UiButton'
 import { UiTypography } from '@shared/ui/UiTypography'
@@ -29,6 +29,8 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 					icon={<ShieldUser />}
 				/>
 				<UiPasswordInput
+					icon={<Lock />}
+					isDefaultShowPassword
 					inputProps={{ defaultValue: password }}
 					label='Пароль'
 					errorMessage={'dsas'}

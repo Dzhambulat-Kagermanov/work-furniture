@@ -14,6 +14,7 @@ const UiPasswordInput = ({
 	contentClassName,
 	isDefaultShowPassword = true,
 	inputProps,
+	icon,
 	...props
 }) => {
 	const [showPassword, setShowPassword] = useState(
@@ -37,6 +38,7 @@ const UiPasswordInput = ({
 				</UiTypography>
 			) : null}
 			<div className={clsx(cls.content, contentClassName)}>
+				{icon}
 				<input
 					{...inputProps}
 					type={showPassword ? 'text' : 'password'}
