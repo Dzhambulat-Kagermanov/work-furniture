@@ -15,12 +15,16 @@ import {
 import { PROFILE_SCHEMA } from '@shared/utils/validationSchemas'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { ROUTES } from '@shared/constants/routes'
+import { useNavigate } from 'react-router-dom'
 
 const ProfileView = ({ className, session: { name, password }, ...props }) => {
 	const isAdmin = useAuth(isAdminSelector)
 	const removeUser = useAuth(removeUserSelector)
 	const unAuthorizationUser = useAuth(unAuthorizationUserSelector)
 	const editUser = useAuth(editUserSelector)
+
+	const navigate = useNavigate()
 
 	const {
 		formState: { errors },
@@ -41,7 +45,17 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 				<UiTypography font='JosefinSans-R' className={cls.title}>
 					Ваш профиль
 				</UiTypography>
-				{isAdmin ? <UiButton>Войти в админ панель</UiButton> : null}
+				{isAdmin ? (
+					<UiButton
+						onClick={() => {
+							navigate(ROUTES.ADMIN.HOME)
+						}}
+					>
+						<UiTypography font='JosefinSans-R'>
+							Войти в админ панель
+						</UiTypography>
+					</UiButton>
+				) : null}
 			</div>
 			<form
 				className={cls.form}
