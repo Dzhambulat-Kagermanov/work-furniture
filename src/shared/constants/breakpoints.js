@@ -1,0 +1,11 @@
+export const XXL = 1601
+export const XL = 1441
+export const LG_BIG = 1281
+export const LG_MID = 1025
+export const LG_LOW = 961
+export const MD_MID = 769
+export const MD_LOW = 601
+export const XS_BIG = 481
+export const XS_MID = 361
+export const XS_LOW = 321
+export const ZERO = 0
