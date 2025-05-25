@@ -6,7 +6,7 @@ import { BURGER_MENU_SLUG } from '@shared/constants/modals-slugs'
 
 const SLUG = BURGER_MENU_SLUG
 
-const BurgerMenuOpen = ({ className, onClick, ...props }) => {
+const MenuOpenButton = ({ className, onClick, ...props }) => {
 	const showModal = useModals(showModalSelector)
 
 	return (
@@ -23,4 +23,4 @@ const BurgerMenuOpen = ({ className, onClick, ...props }) => {
 	)
 }
 
-export { BurgerMenuOpen }
+export { MenuOpenButton }

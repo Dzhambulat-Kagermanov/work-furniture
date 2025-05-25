@@ -1,6 +1,14 @@
 :root {
 	--greenBase: #3f4021;
+	--greenBase-H: rgb(33, 34, 18);
+	--greenBase-A: rgb(55, 56, 30);
 
 	--whiteBase: #fff;
-	--white100-90: rgba(222, 221, 221, 90%);
+	--white100: #dedddd;
+	--white100-90: #dedddde6;
+	--white200: #f4f4f4;
+
+	--blackBase: #000;
+
+	--modules-gap: 70px;
 }

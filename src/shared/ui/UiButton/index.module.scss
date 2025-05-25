@@ -1,0 +1,17 @@
+.wrapper {
+	transition: 0.1s ease;
+	&.variant_fill {
+		color: var(--whiteBase);
+		background-color: var(--greenBase);
+		border-radius: 7px;
+		padding: 20px 30px;
+		font-size: 20px;
+
+		&:hover {
+			background-color: var(--greenBase-H);
+		}
+		&:active {
+			background-color: var(--greenBase-A);
+		}
+	}
+}

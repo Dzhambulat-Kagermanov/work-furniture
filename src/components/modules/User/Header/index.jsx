@@ -5,7 +5,7 @@ import { Navigation } from './Navigation'
 import cls from './index.module.scss'
 import { useScreen } from '@shared/hooks/useScreen'
 import { MD_MID } from '@shared/constants/breakpoints'
-import { BurgerMenuOpen } from '@widgets/User/BurgerMenuOpen'
+import { MenuOpenButton } from '@modules/User/Header/MenuOpenButton'
 
 const Header = ({ className, ...props }) => {
 	const { screenWidth } = useScreen()
@@ -16,7 +16,7 @@ const Header = ({ className, ...props }) => {
 				<Link to='/' className={cls.logo}>
 					<img src='/images/logo.svg' />
 				</Link>
-				{screenWidth >= MD_MID ? <Navigation /> : <BurgerMenuOpen />}
+				{screenWidth >= MD_MID ? <Navigation /> : <MenuOpenButton />}
 			</UiContainer>
 		</header>
 	)
