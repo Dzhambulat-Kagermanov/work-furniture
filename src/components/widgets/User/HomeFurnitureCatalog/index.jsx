@@ -13,7 +13,7 @@ const HomeFurnitureCatalog = ({ className, ...props }) => {
 			{...props}
 			variant='shrink'
 		>
-			<UiTypography font='JosefinSans-SB' Tag='h2'>
+			<UiTypography font='Montserrat-SB' Tag='h2'>
 				Каталог мебели
 			</UiTypography>
 			<ul className={cls.cards_content}>

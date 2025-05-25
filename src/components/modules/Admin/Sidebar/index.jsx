@@ -12,14 +12,14 @@ const Sidebar = ({ className, ...props }) => {
 
 	return (
 		<aside className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-SB' Tag='h2' className={cls.title}>
+			<UiTypography font='Montserrat-SB' Tag='h2' className={cls.title}>
 				Каталоги
 			</UiTypography>
 			<nav className={cls.nav}>
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.HOME}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin',
 					})}
@@ -29,7 +29,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('chairs')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/chairs',
 					})}
@@ -39,7 +39,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('tables')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/tables',
 					})}
@@ -49,7 +49,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('storage-systems')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/storage-systems',
 					})}
@@ -59,7 +59,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('up-furniture')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/up-furniture',
 					})}
@@ -69,7 +69,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('partitions')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/partitions',
 					})}
@@ -79,7 +79,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('reception')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/reception',
 					})}
@@ -89,7 +89,7 @@ const Sidebar = ({ className, ...props }) => {
 				<UiTypography
 					Tag={Link}
 					to={ROUTES.ADMIN.CATALOG('accessories')}
-					font='JosefinSans-R'
+					font='Montserrat-R'
 					className={clsx(cls.link, {
 						[cls.active]: path === '/admin/accessories',
 					})}

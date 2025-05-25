@@ -6,7 +6,7 @@ import { ContentItem } from '../ContentItem'
 const Content = ({ className, ...props }) => {
 	return (
 		<div className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-R' className={cls.title}>
+			<UiTypography font='Montserrat-R' className={cls.title}>
 				Этапы работы
 			</UiTypography>
 			<ul className={cls.content}>

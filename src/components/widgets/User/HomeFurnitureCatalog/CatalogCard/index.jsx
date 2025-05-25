@@ -11,7 +11,7 @@ const CatalogCard = ({ className, image, children, ...props }) => {
 			}}
 			{...props}
 		>
-			<UiTypography font='JosefinSans-R'>{children}</UiTypography>
+			<UiTypography font='Montserrat-R'>{children}</UiTypography>
 		</li>
 	)
 }

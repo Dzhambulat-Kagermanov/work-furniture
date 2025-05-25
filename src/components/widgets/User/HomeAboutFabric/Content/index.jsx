@@ -5,11 +5,11 @@ import { UiTypography } from '@shared/ui/UiTypography'
 const Content = ({ className, ...props }) => {
 	return (
 		<div className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-R' Tag='h2'>
+			<UiTypography font='Montserrat-R' Tag='h2'>
 				Наша фабрика
 			</UiTypography>
-			<UiTypography font='JosefinSans-R' className={cls.content}>
-				<UiTypography font='JosefinSans-SB' Tag='span'>
+			<UiTypography font='Montserrat-R' className={cls.content}>
+				<UiTypography font='Montserrat-SB' Tag='span'>
 					ioofice
 				</UiTypography>{' '}
 				— это мебельная фабрика, которая придерживается принципов устойчивого

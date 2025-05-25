@@ -35,21 +35,21 @@ const Slider = ({ className, ...props }) => {
 			>
 				<SwiperSlide className={cls.slide}>
 					<div className={cls.content}>
-						<UiTypography font='JosefinSans-R' Tag='h2'>
+						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 1
 						</UiTypography>
 					</div>
 				</SwiperSlide>
 				<SwiperSlide className={cls.slide}>
 					<div className={cls.content}>
-						<UiTypography font='JosefinSans-R' Tag='h2'>
+						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 2
 						</UiTypography>
 					</div>
 				</SwiperSlide>
 				<SwiperSlide className={cls.slide}>
 					<div className={cls.content}>
-						<UiTypography font='JosefinSans-R' Tag='h2'>
+						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 3
 						</UiTypography>
 					</div>

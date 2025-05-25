@@ -33,7 +33,7 @@ const ProfileAuth = ({ className, ...props }) => {
 
 	return (
 		<section className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-R' className={cls.title}>
+			<UiTypography font='Montserrat-R' className={cls.title}>
 				{type === 'login' ? 'Вход' : 'Зарегистрироваться'}
 			</UiTypography>
 			<form
@@ -85,7 +85,7 @@ const ProfileAuth = ({ className, ...props }) => {
 						errors.password?.message !== undefined
 					}
 				>
-					<UiTypography font='JosefinSans-R'>
+					<UiTypography font='Montserrat-R'>
 						{type === 'login' ? 'Войти' : 'Зарегистрироваться'}
 					</UiTypography>
 				</UiButton>

@@ -5,7 +5,7 @@ import { UiTypography } from '@shared/ui/UiTypography'
 const CatalogBlock = ({ className, children, ...props }) => {
 	return (
 		<li className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-R'>{children}</UiTypography>
+			<UiTypography font='Montserrat-R'>{children}</UiTypography>
 		</li>
 	)
 }

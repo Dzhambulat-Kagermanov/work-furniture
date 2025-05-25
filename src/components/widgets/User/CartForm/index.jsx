@@ -19,7 +19,7 @@ const CartForm = ({ className, ...props }) => {
 		>
 			<CartList products={products} />
 			<UiButton className={cls.btn}>
-				<UiTypography font='JosefinSans-R'>
+				<UiTypography font='Montserrat-R'>
 					{products.length ? 'Оформить доставку' : 'Добавить новые товары'}
 				</UiTypography>
 			</UiButton>

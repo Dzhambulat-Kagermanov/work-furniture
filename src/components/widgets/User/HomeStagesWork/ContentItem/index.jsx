@@ -13,14 +13,14 @@ const ContentItem = ({
 }) => {
 	return (
 		<li className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-SB' Tag='h2' className={cls.title}>
+			<UiTypography font='Montserrat-SB' Tag='h2' className={cls.title}>
 				{count}. {title}
 			</UiTypography>
-			<UiTypography font='JosefinSans-R' Tag='h3' className={cls.subtitle}>
+			<UiTypography font='Montserrat-R' Tag='h3' className={cls.subtitle}>
 				{subtitle}
 			</UiTypography>
 			<UiButton className={clsx(cls.btn, cls.item_btn)}>
-				<UiTypography font='JosefinSans-R'>{btnText}</UiTypography>
+				<UiTypography font='Montserrat-R'>{btnText}</UiTypography>
 			</UiButton>
 		</li>
 	)

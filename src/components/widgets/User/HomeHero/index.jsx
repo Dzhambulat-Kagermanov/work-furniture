@@ -13,21 +13,21 @@ const HomeHero = ({ className, ...props }) => {
 				{...props}
 			>
 				<div className={cls.content}>
-					<UiTypography font='JosefinSans-R' Tag='h1'>
+					<UiTypography font='Montserrat-R' Tag='h1'>
 						Офисная мебель для вашего стартапа
 					</UiTypography>
-					<UiTypography font='JosefinSans-R' Tag='h2'>
+					<UiTypography font='Montserrat-R' Tag='h2'>
 						Создайте рабочее пространство, которое вам понравится. Наша мебель
 						имеет значение.
 					</UiTypography>
 					<div className={cls.actions}>
 						<UiButton>
-							<UiTypography font='JosefinSans-R'>
+							<UiTypography font='Montserrat-R'>
 								Создай свой проект
 							</UiTypography>
 						</UiButton>
 						<UiButton>
-							<UiTypography font='JosefinSans-R'>В каталог</UiTypography>
+							<UiTypography font='Montserrat-R'>В каталог</UiTypography>
 						</UiButton>
 					</div>
 				</div>

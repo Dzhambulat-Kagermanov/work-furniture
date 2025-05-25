@@ -42,7 +42,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 	return (
 		<section className={clsx(cls.wrapper, className)} {...props}>
 			<div className={cls.header}>
-				<UiTypography font='JosefinSans-R' className={cls.title}>
+				<UiTypography font='Montserrat-R' className={cls.title}>
 					Ваш профиль
 				</UiTypography>
 				{isAdmin ? (
@@ -51,7 +51,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 							navigate(ROUTES.ADMIN.HOME)
 						}}
 					>
-						<UiTypography font='JosefinSans-R'>
+						<UiTypography font='Montserrat-R'>
 							Войти в админ панель
 						</UiTypography>
 					</UiButton>
@@ -78,14 +78,14 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 				/>
 				<div className={cls.actions}>
 					<UiButton type='submit' className={clsx(cls.btn)} disabled={isAdmin}>
-						<UiTypography font='JosefinSans-R'>Сохранить</UiTypography>
+						<UiTypography font='Montserrat-R'>Сохранить</UiTypography>
 					</UiButton>
 					<UiButton
 						onClick={() => {
 							unAuthorizationUser()
 						}}
 						variant='danger'
-						font='JosefinSans-R'
+						font='Montserrat-R'
 						className={clsx(cls.btn)}
 					>
 						Выйти
@@ -97,7 +97,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 							removeUser({ name, password })
 						}}
 					>
-						<UiTypography font='JosefinSans-R'>Удалить аккаунт</UiTypography>
+						<UiTypography font='Montserrat-R'>Удалить аккаунт</UiTypography>
 					</UiButton>
 				</div>
 			</form>

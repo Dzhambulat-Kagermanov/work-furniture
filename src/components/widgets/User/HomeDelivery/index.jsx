@@ -15,10 +15,10 @@ const HomeDelivery = ({ className, ...props }) => {
 			{...props}
 			variant='shrink'
 		>
-			<UiTypography font='JosefinSans-R' Tag='h2' className={cls.title}>
+			<UiTypography font='Montserrat-R' Tag='h2' className={cls.title}>
 				Доставка
 			</UiTypography>
-			<UiTypography font='JosefinSans-R' Tag='p' className={cls.subtitle}>
+			<UiTypography font='Montserrat-R' Tag='p' className={cls.subtitle}>
 				Мы понимаем, насколько важно быстро и эффективно доставить вам офисную
 				{screenWidth >= LG_BIG ? <br /> : null}
 				мебель. Для этого предлагаем различные варианты доставки в соответствии

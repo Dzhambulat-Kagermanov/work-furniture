@@ -6,7 +6,7 @@ import { UiTypography } from '@shared/ui/UiTypography'
 const CartScreen = props => {
 	return (
 		<UiContainer variant='shrink' Tag='main' className={cls.wrapper} {...props}>
-			<UiTypography font='JosefinSans-SB' className={cls.title}>
+			<UiTypography font='Montserrat-SB' className={cls.title}>
 				Корзина (20)
 			</UiTypography>
 			<CartForm />

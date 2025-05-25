@@ -12,12 +12,12 @@ const HomeProjects = ({ className, ...props }) => {
 			className={clsx(cls.wrapper, className)}
 			{...props}
 		>
-			<UiTypography font='JosefinSans' Tag='h2'>
+			<UiTypography font='Montserrat' Tag='h2'>
 				Реализованные проекты
 			</UiTypography>
 			<Slider />
 			<UiButton className={clsx(cls.btn, cls.design)}>
-				<UiTypography font='JosefinSans-R'>Заказать дизайн-проект</UiTypography>
+				<UiTypography font='Montserrat-R'>Заказать дизайн-проект</UiTypography>
 			</UiButton>
 		</UiContainer>
 	)

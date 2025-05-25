@@ -9,23 +9,23 @@ const Achievements = ({ className, ...props }) => {
 				<div className={cls.icon}>
 					<img src='/images/User/Home/AboutFabric/cupe.svg' alt='Кубок' />
 				</div>
-				<UiTypography font='JosefinSans-R'>топ 10 по России</UiTypography>
+				<UiTypography font='Montserrat-R'>топ 10 по России</UiTypography>
 			</li>
 			<li className={cls.link}>
 				<div className={cls.icon}>
-					<UiTypography font='JosefinSans-R'>
+					<UiTypography font='Montserrat-R'>
 						15
 						<br />
 						лет
 					</UiTypography>
 				</div>
-				<UiTypography font='JosefinSans-R'>на рынке</UiTypography>
+				<UiTypography font='Montserrat-R'>на рынке</UiTypography>
 			</li>
 			<li className={cls.link}>
 				<div className={cls.icon}>
 					<img src='/images/User/Home/AboutFabric/star.svg' alt='Кубок' />
 				</div>
-				<UiTypography font='JosefinSans-R'>гарант качества</UiTypography>
+				<UiTypography font='Montserrat-R'>гарант качества</UiTypography>
 			</li>
 		</ul>
 	)
