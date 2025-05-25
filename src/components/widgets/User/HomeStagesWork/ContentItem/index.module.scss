@@ -8,8 +8,22 @@
 	margin-bottom: 46px;
 	font-size: 24px;
 }
-.btn {
-	width: 460px;
-	padding-top: 18px;
-	padding-bottom: 18px;
+.item_btn.btn {
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: auto;
+	font-size: 16px;
+}
+
+@media screen and (min-width: 600px) {
+	.item_btn.btn {
+		width: 460px;
+		font-size: 20px;
+	}
+}
+@media screen and (min-width: 769px) {
+	.item_btn.btn {
+		margin-left: 40px;
+	}
 }

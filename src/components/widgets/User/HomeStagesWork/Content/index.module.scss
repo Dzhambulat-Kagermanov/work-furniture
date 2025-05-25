@@ -2,8 +2,14 @@
 	font-size: 36px;
 	margin-bottom: 45px;
 }
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
 .content {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	row-gap: 40px;
+	flex-grow: 1;
 }
