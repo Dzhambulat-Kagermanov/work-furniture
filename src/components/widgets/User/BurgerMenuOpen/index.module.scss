@@ -1,0 +1,14 @@
+.wrapper {
+	& > svg {
+		transition: 0.2s ease;
+		opacity: 0.6;
+		color: var(--whiteBase);
+	}
+
+	&:hover {
+		opacity: 1;
+		& > svg {
+			opacity: 1;
+		}
+	}
+}
