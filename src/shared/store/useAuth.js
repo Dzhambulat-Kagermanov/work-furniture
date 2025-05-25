@@ -1,16 +1,27 @@
-import { STORAGE_AUTH_KEY } from '@shared/constants/localStorageKeys'
+import {
+	STORAGE_USERS_AUTH_KEY,
+	STORAGE_SESSION_AUTH_KEY,
+} from '@shared/constants/localStorageKeys'
 import { create } from 'zustand'
 
 export const useAuth = create()((set, get) => ({
-	session: null,
-	users: localStorage.getItem(STORAGE_AUTH_KEY) || [],
+	session: JSON.parse(localStorage.getItem(STORAGE_SESSION_AUTH_KEY)),
+	users: JSON.parse(localStorage.getItem(STORAGE_USERS_AUTH_KEY)) || [],
 	addUser: ({ name, password }) => {
 		set(({ users }) => {
+			localStorage.setItem(
+				STORAGE_USERS_AUTH_KEY,
+				JSON.stringify([...users, { name, password }])
+			)
+			localStorage.setItem(
+				STORAGE_SESSION_AUTH_KEY,
+				JSON.stringify({ name, password })
+			)
 			return {
 				users: [...users, { name, password }],
+				session: { name, password },
 			}
 		})
-		localStorage.setItem(STORAGE_AUTH_KEY, [...users, { name, password }])
 	},
 	removeUser: ({ name, password }) => {
 		set(({ users }) => {
@@ -22,8 +33,8 @@ export const useAuth = create()((set, get) => ({
 			})
 
 			if (data.length !== users.length) {
-				localStorage.setItem(STORAGE_AUTH_KEY, data)
-				get().unAuthorizationUser({ skip })
+				localStorage.setItem(STORAGE_USERS_AUTH_KEY, JSON.stringify(data))
+				get().unAuthorizationUser({ skip: true })
 			}
 
 			return {
@@ -31,26 +42,32 @@ export const useAuth = create()((set, get) => ({
 			}
 		})
 	},
-	unAuthorizationUser: ({ skip }) => {
+	unAuthorizationUser: props => {
 		const session = get().session
 
-		if (session || !skip) {
-			const isValid =
-				users.find(props => {
-					if (
-						props.name === session.name &&
-						props.password === session.password
-					) {
-						return true
-					}
-				}) !== undefined
+		set(({ users }) => {
+			if (session || !props?.skip) {
+				const isValid =
+					users.find(props => {
+						if (
+							props.name === session.name &&
+							props.password === session.password
+						) {
+							return true
+						}
+					}) !== undefined
 
-			return isValid
-				? {
-						session: null,
-				  }
-				: undefined
-		}
+				if (isValid) {
+					localStorage.removeItem(STORAGE_SESSION_AUTH_KEY)
+				}
+
+				return isValid
+					? {
+							session: null,
+					  }
+					: undefined
+			}
+		})
 	},
 	authorizationUser: ({ name, password }) => {
 		set(({ users }) => {
@@ -60,6 +77,13 @@ export const useAuth = create()((set, get) => ({
 						return true
 					}
 				}) !== undefined
+
+			if (isValid) {
+				localStorage.setItem(
+					STORAGE_SESSION_AUTH_KEY,
+					JSON.stringify({ name, password })
+				)
+			}
 
 			return {
 				session: isValid ? { name, password } : null,
@@ -88,9 +112,17 @@ export const useAuth = create()((set, get) => ({
 			}
 
 			if (isFinding && editedUsers !== undefined) {
-				localStorage.setItem(STORAGE_AUTH_KEY, editedUsers)
+				localStorage.setItem(
+					STORAGE_USERS_AUTH_KEY,
+					JSON.stringify(editedUsers)
+				)
+				localStorage.setItem(
+					STORAGE_SESSION_AUTH_KEY,
+					JSON.stringify({ name, password })
+				)
 				return {
 					users: editedUsers,
+					session: { name, password },
 				}
 			}
 		})

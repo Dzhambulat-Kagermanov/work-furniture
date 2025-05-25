@@ -77,20 +77,18 @@ const ProfileAuth = ({ className, ...props }) => {
 					</UiTypography>
 				</UiButton>
 
-				<div className={cls.actions}>
-					<UiButton
-						type='submit'
-						className={clsx(cls.btn)}
-						disabled={
-							errors.name?.message === undefined ||
-							errors.password?.message === undefined
-						}
-					>
-						<UiTypography font='JosefinSans-R'>
-							{type === 'login' ? 'Войти' : 'Зарегистрироваться'}
-						</UiTypography>
-					</UiButton>
-				</div>
+				<UiButton
+					type='submit'
+					className={clsx(cls.btn)}
+					disabled={
+						errors.name?.message !== undefined ||
+						errors.password?.message !== undefined
+					}
+				>
+					<UiTypography font='JosefinSans-R'>
+						{type === 'login' ? 'Войти' : 'Зарегистрироваться'}
+					</UiTypography>
+				</UiButton>
 			</form>
 		</section>
 	)

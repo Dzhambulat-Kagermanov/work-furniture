@@ -1,1 +1,2 @@
-export const STORAGE_AUTH_KEY = 'io-office-auth'
+export const STORAGE_USERS_AUTH_KEY = 'io-office-auth-users'
+export const STORAGE_SESSION_AUTH_KEY = 'io-office-session-users'
