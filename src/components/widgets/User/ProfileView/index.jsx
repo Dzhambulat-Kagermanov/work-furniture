@@ -11,37 +11,54 @@ import {
 	unAuthorizationUserSelector,
 	useAuth,
 } from '@shared/store/useAuth'
+import { PROFILE_SCHEMA } from '@shared/utils/validationSchemas'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 
 const ProfileView = ({ className, session: { name, password }, ...props }) => {
 	const removeUser = useAuth(removeUserSelector)
 	const unAuthorizationUser = useAuth(unAuthorizationUserSelector)
 	const editUser = useAuth(editUserSelector)
 
+	const {
+		formState: { errors },
+		handleSubmit,
+		register,
+	} = useForm({
+		reValidateMode: 'onChange',
+		resolver: yupResolver(PROFILE_SCHEMA),
+		defaultValues: {
+			name,
+			password,
+		},
+	})
+
 	return (
 		<section className={clsx(cls.wrapper, className)} {...props}>
 			<UiTypography font='JosefinSans-R' className={cls.title}>
 				Ваш профиль
 			</UiTypography>
-			<form className={cls.form}>
+			<form
+				className={cls.form}
+				onSubmit={handleSubmit(({ name, password }) => {
+					editUser({ name, password })
+				})}
+			>
 				<UiInput
-					inputProps={{ defaultValue: name }}
+					inputProps={{ ...register('name') }}
 					label='Имя'
 					icon={<ShieldUser />}
+					errorMessage={errors.name?.message}
 				/>
 				<UiPasswordInput
 					icon={<Lock />}
 					isDefaultShowPassword
-					inputProps={{ defaultValue: password }}
+					inputProps={{ ...register('password') }}
 					label='Пароль'
-					errorMessage={'dsas'}
+					errorMessage={errors.password?.message}
 				/>
 				<div className={cls.actions}>
-					<UiButton
-						className={clsx(cls.btn)}
-						onClick={() => {
-							editUser({ name, password })
-						}}
-					>
+					<UiButton type='submit' className={clsx(cls.btn)}>
 						<UiTypography font='JosefinSans-R'>Сохранить</UiTypography>
 					</UiButton>
 					<UiButton
