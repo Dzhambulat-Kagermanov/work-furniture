@@ -4,13 +4,13 @@
 	row-gap: 30px;
 	padding: 0 20px;
 	flex-wrap: wrap;
-	margin: 40px 0;
+	margin: 40px auto;
 }
 
 @media screen and (min-width: 1025px) {
 	.wrapper {
 		column-gap: 70px;
-		margin: 0;
+		margin: 0 auto;
 		padding: var(--modules-gap);
 	}
 }
