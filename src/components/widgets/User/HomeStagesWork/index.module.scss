@@ -1,0 +1,14 @@
+.wrapper {
+	display: flex;
+	padding: 40px 20px;
+	column-gap: 40px;
+}
+.content {
+	flex-grow: 1;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding-bottom: var(--modules-gap);
+	}
+}

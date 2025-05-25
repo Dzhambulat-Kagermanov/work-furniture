@@ -15,8 +15,12 @@
 .blocks_content {
 	margin-top: 20px;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
 	gap: 20px;
+}
+@media screen and (min-width: 600px) {
+	.blocks_content {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 @media screen and (min-width: 769px) {
 	.wrapper {
