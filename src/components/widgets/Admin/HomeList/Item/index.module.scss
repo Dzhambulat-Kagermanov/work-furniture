@@ -1,0 +1,32 @@
+.wrapper {
+	height: 400px;
+	background-image: var(--bg);
+	background-size: 120%;
+	position: relative;
+	padding: 25px;
+	border-radius: 15px;
+	overflow: hidden;
+	cursor: pointer;
+	display: flex;
+	align-items: flex-end;
+	font-size: 24px;
+	color: var(--whiteBase);
+	transition: 0.5s ease;
+	background-position: center;
+	&::before {
+		transition: 0.5s ease;
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: var(--blackBase-40);
+	}
+	&:hover {
+		background-size: 130%;
+		&::before {
+			backdrop-filter: blur(4px);
+		}
+	}
+	& > h2 {
+		position: relative;
+	}
+}
