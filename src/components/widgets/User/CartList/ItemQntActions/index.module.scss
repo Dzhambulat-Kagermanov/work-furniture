@@ -1,10 +1,10 @@
 .wrapper {
 	display: flex;
+	justify-content: flex-end;
 	align-items: center;
-	column-gap: 20px;
+	column-gap: 12px;
 	margin-left: auto;
 	flex-grow: 1;
-	overflow: auto;
 }
 
 .btn {
@@ -19,5 +19,21 @@
 	&:not(:disabled):hover {
 		scale: 1.05;
 		box-shadow: 2px 2px 5px 0 var(--blackBase-20);
+	}
+	svg {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+@media screen and (min-width: 481px) {
+	.wrapper {
+		column-gap: 20px;
+	}
+	.btn {
+		svg {
+			width: 24px;
+			height: 24px;
+		}
 	}
 }

@@ -1,8 +1,8 @@
 .wrapper {
 	display: flex;
 	align-items: center;
-	column-gap: 50px;
-	font-size: 22px;
+	column-gap: 20px;
+	font-size: 14px;
 	border-bottom: 2px solid var(--greenBase);
 	padding-bottom: 15px;
 	cursor: pointer;
@@ -14,10 +14,12 @@
 .delete_btn {
 	display: flex;
 	border: 2px solid var(--danger);
-	padding: 10px;
+	padding: 8px;
 	border-radius: 7px;
 	transition: 0.2s ease;
 	svg {
+		width: 19px;
+		height: 19px;
 		color: var(--danger);
 	}
 	&:hover {
@@ -25,5 +27,26 @@
 		svg {
 			color: var(--whiteBase);
 		}
+	}
+}
+
+@media screen and (min-width: 601px) {
+	.delete_btn {
+		padding: 10px;
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+	.wrapper {
+		column-gap: 30px;
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.wrapper {
+		column-gap: 50px;
+		font-size: 22px;
 	}
 }

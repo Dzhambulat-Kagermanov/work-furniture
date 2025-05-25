@@ -1,4 +1,33 @@
 .wrapper {
+	position: relative;
+	padding: 0 10px;
 	flex-grow: 1;
 	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	&::-webkit-scrollbar {
+		width: 4px;
+		background-color: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--greenBase);
+		border-radius: 335px;
+	}
+}
+.empty {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	translate: -50%;
+	color: var(--white100);
+	text-align: center;
+	font-size: 27px;
+	svg {
+		width: 68px;
+		height: 68px;
+	}
+	h2 {
+		white-space: nowrap;
+	}
 }
