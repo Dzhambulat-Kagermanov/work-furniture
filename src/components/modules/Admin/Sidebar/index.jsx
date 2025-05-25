@@ -15,6 +15,7 @@ import {
 } from '@shared/store/useModals'
 import { SIDEBAR_SLUG } from '@shared/constants/modals-slugs'
 import { useEffect } from 'react'
+import { CATALOGS } from '@shared/constants/catalogs'
 
 const SLUG = SIDEBAR_SLUG
 
@@ -68,73 +69,73 @@ const Sidebar = ({ className, ...props }) => {
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('chairs')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.chairs.value)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/chairs',
+						[cls.active]: path === `/admin/${CATALOGS.chairs.key}`,
 					})}
 				>
-					Стулья
+					{CATALOGS.chairs.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('tables')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.tables.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/tables',
+						[cls.active]: path === `/admin/${CATALOGS.tables.key}`,
 					})}
 				>
-					Столы
+					{CATALOGS.tables.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('storage-systems')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.storageSystems.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/storage-systems',
+						[cls.active]: path === `/admin/${CATALOGS.storageSystems.key}`,
 					})}
 				>
-					Системы хранения
+					{CATALOGS.storageSystems.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('up-furniture')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.upFurniture.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/up-furniture',
+						[cls.active]: path === `/admin/${CATALOGS.upFurniture.key}`,
 					})}
 				>
-					Мягкая мебель
+					{CATALOGS.upFurniture.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('partitions')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.partitions.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/partitions',
+						[cls.active]: path === `/admin/${CATALOGS.partitions.key}`,
 					})}
 				>
-					Перегородки
+					{CATALOGS.partitions.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('reception')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.reception.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/reception',
+						[cls.active]: path === `/admin/${CATALOGS.reception.key}`,
 					})}
 				>
-					Ресепшн
+					{CATALOGS.reception.value}
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG('accessories')}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.accessories.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === '/admin/accessories',
+						[cls.active]: path === `/admin/${CATALOGS.accessories.key}`,
 					})}
 				>
-					Аксессуары
+					{CATALOGS.accessories.value}
 				</UiTypography>
 			</nav>
 			<UiButton
