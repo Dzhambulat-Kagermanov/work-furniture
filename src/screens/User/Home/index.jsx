@@ -4,6 +4,7 @@ import { HomeHero } from '@widgets/User/HomeHero'
 import { HomeAboutFabric } from '@widgets/User/HomeAboutFabric'
 import { HomeAdvantages } from '@widgets/User/HomeAdvantages'
 import { HomeProjects } from '@widgets/User/HomeProjects'
+import { HomeFurnitureCatalog } from '@widgets/User/HomeFurnitureCatalog'
 
 const HomeScreen = ({ className, ...props }) => {
 	return (
@@ -12,6 +13,7 @@ const HomeScreen = ({ className, ...props }) => {
 			<HomeAboutFabric />
 			<HomeAdvantages />
 			<HomeProjects />
+			<HomeFurnitureCatalog />
 		</main>
 	)
 }

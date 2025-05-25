@@ -1,0 +1,36 @@
+.wrapper {
+	padding: 0 20px var(--modules-gap) 20px;
+
+	h2 {
+		font-size: 32px;
+		margin-bottom: 30px;
+	}
+}
+.cards_content {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 20px;
+}
+
+.blocks_content {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+@media screen and (min-width: 769px) {
+	.wrapper {
+		h2 {
+			margin-bottom: 60px;
+		}
+	}
+	.cards_content {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (min-width: 1025px) {
+	.blocks_content {
+		grid-template-columns: repeat(4, 1fr);
+		margin-top: 44px;
+	}
+}
