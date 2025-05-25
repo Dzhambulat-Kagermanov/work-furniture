@@ -1,0 +1,16 @@
+.wrapper {
+	display: flex;
+	column-gap: 30px;
+	row-gap: 30px;
+	padding: 0 20px;
+	flex-wrap: wrap;
+	margin: 40px 0;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		column-gap: 70px;
+		margin: 0;
+		padding: var(--modules-gap);
+	}
+}
