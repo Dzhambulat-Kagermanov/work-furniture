@@ -1,6 +1,10 @@
 .wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow: hidden;
 }
 .btn {
 	margin-top: 40px;
-	width: 30%;
+	width: 350px;
 }

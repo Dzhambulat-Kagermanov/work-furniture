@@ -16,4 +16,11 @@
 	--danger: rgb(255, 56, 56);
 
 	--modules-gap: 70px;
+	--header-height: 71px;
+}
+
+@media screen and (min-width: 481px) {
+	body {
+		--header-height: 89px;
+	}
 }
