@@ -1,5 +1,6 @@
 .wrapper {
-	width: 400px;
+	max-width: 400px;
+	width: 100%;
 	background-color: var(--whiteBase);
 	box-shadow: 2px 0 5px 0 var(--blackBase-20);
 	padding: 30px;
@@ -9,9 +10,16 @@
 	left: 0;
 	top: 0;
 	bottom: 0;
-	z-index: 2;
 	translate: -100% 0;
 	transition: 0.5s ease;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 5px;
+		background-color: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--white100);
+	}
 	&.active {
 		translate: 0;
 	}
@@ -58,12 +66,14 @@
 	align-items: center;
 	padding: 8px 4px;
 	width: max-content;
+	margin-top: 30px;
 }
 
 @media screen and (min-width: 769px) {
 	.wrapper {
-		width: 300px;
+		max-width: 300px;
 		position: static;
 		translate: 0;
+		z-index: 0;
 	}
 }

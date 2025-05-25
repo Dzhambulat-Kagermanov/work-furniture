@@ -10,9 +10,18 @@
 	flex-direction: column;
 }
 .header {
+	align-items: center;
 	background-color: var(--whiteBase);
 	padding: 20px 30px;
 	display: flex;
+	.add_btn {
+		display: flex;
+		column-gap: 5px;
+		align-items: center;
+		padding: 10px 20px;
+		font-size: 14px;
+		margin-left: auto;
+	}
 }
 .sidebar_open_btn {
 	display: flex;
