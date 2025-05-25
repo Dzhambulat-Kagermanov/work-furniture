@@ -1,0 +1,16 @@
+.wrapper {
+	background-color: var(--greenBase);
+	padding-top: 18px;
+	padding-bottom: 18px;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo {
+	img {
+		height: 62px;
+	}
+}

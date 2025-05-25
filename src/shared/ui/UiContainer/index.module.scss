@@ -1,0 +1,11 @@
+.wrapper {
+	padding: 0 20px;
+	margin: 0 auto;
+
+	&.variant_expand {
+		max-width: 1630px;
+	}
+	&.variant_shrink {
+		max-width: 1530px;
+	}
+}
