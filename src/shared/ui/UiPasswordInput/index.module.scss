@@ -25,3 +25,9 @@
 	width: 100%;
 	flex: 1;
 }
+.show_btn {
+	display: flex;
+	svg {
+		color: var(--green100);
+	}
+}

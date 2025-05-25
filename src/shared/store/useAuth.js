@@ -31,11 +31,16 @@ export const useAuth = create()((set, get) => ({
 			}
 		})
 	},
-	unAuthorizationUser: ({ name, password, skip }) => {
-		if (!skip) {
+	unAuthorizationUser: ({ skip }) => {
+		const session = get().session
+
+		if (session || !skip) {
 			const isValid =
 				users.find(props => {
-					if (props.name === name && props.password === password) {
+					if (
+						props.name === session.name &&
+						props.password === session.password
+					) {
 						return true
 					}
 				}) !== undefined
@@ -45,10 +50,6 @@ export const useAuth = create()((set, get) => ({
 						session: null,
 				  }
 				: undefined
-		} else {
-			return {
-				session: null,
-			}
 		}
 	},
 	authorizationUser: ({ name, password }) => {
@@ -65,6 +66,35 @@ export const useAuth = create()((set, get) => ({
 			}
 		})
 	},
+	editUser: ({ name, password }) => {
+		set(({ users }) => {
+			const session = get().session
+			let isFinding = false
+			let editedUsers
+
+			if (session) {
+				editedUsers = users.map(props => {
+					if (
+						props.name === session.name &&
+						props.password === session.password
+					) {
+						isFinding = true
+						return {
+							name,
+							password,
+						}
+					}
+				})
+			}
+
+			if (isFinding && editedUsers !== undefined) {
+				localStorage.setItem(STORAGE_AUTH_KEY, editedUsers)
+				return {
+					users: editedUsers,
+				}
+			}
+		})
+	},
 }))
 
 export const sessionSelector = state => state.session
@@ -73,3 +103,4 @@ export const addUserSelector = state => state.addUser
 export const removeUserSelector = state => state.removeUser
 export const authorizationUserSelector = state => state.authorizationUser
 export const unAuthorizationUserSelector = state => state.unAuthorizationUser
+export const editUserSelector = state => state.editUser

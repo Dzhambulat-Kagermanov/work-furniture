@@ -15,6 +15,7 @@ const UiButton = ({
 				cls.wrapper,
 				{
 					[cls.variant_fill]: variant === 'fill',
+					[cls.variant_danger]: variant === 'danger',
 				},
 				className
 			)}

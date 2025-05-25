@@ -1,0 +1,24 @@
+.wrapper {
+	padding: 40px 20px;
+}
+.actions {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 20px;
+	margin-top: 40px;
+}
+.title {
+	font-size: 32px;
+}
+.form {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding-bottom: var(--modules-gap);
+	}
+}

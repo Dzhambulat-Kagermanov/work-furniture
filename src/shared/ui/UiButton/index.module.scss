@@ -5,7 +5,7 @@
 		background-color: var(--greenBase);
 
 		border-radius: 7px;
-		padding: 20px 30px;
+		padding: 15px 25px;
 		font-size: 20px;
 
 		&:hover {
@@ -17,5 +17,22 @@
 		&:disabled {
 			background-color: var(--greenBase-D);
 		}
+	}
+	&.variant_danger {
+		color: var(--whiteBase);
+		background-color: var(--danger);
+		border-radius: 7px;
+		padding: 15px 25px;
+		font-size: 20px;
+
+		&:hover {
+			background-color: var(--danger-H);
+		}
+		&:active {
+			background-color: var(--danger-A);
+		}
+	}
+	&:disabled {
+		cursor: not-allowed;
 	}
 }

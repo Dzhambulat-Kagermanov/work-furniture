@@ -4,6 +4,8 @@ import { HeaderFooterBurgerMenu } from '@layouts/HeaderFooterBurgerMenu'
 import { CartScreen } from '@screens/User/Cart'
 import { CatalogItemScreen } from '@screens/User/CatalogItem'
 import { ScrollToAnchor } from './HashLink'
+import { ROUTES } from '@shared/constants/routes'
+import { ProfileScreen } from '@screens/User/Profile'
 
 function App() {
 	return (
@@ -11,9 +13,10 @@ function App() {
 			<ScrollToAnchor />
 			<Routes>
 				<Route element={<HeaderFooterBurgerMenu />}>
-					<Route index element={<HomeScreen />} />
-					<Route path='/cart' element={<CartScreen />} />
+					<Route path={ROUTES.HOME} element={<HomeScreen />} />
+					<Route path={ROUTES.CART} element={<CartScreen />} />
 					<Route path='/catalog/:slug' element={<CatalogItemScreen />} />
+					<Route path={ROUTES.PROFILE} element={<ProfileScreen />} />
 				</Route>
 			</Routes>
 		</>
