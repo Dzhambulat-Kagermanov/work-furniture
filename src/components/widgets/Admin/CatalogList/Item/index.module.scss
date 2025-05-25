@@ -1,0 +1,35 @@
+.wrapper {
+	display: flex;
+	column-gap: 20px;
+	align-items: center;
+	border-bottom: 2px solid var(--green100);
+	padding-bottom: 10px;
+	p,
+	strong {
+		min-width: 10%;
+	}
+}
+.btn {
+	display: flex;
+	border: 2px solid;
+	border-radius: 8px;
+	padding: 8px;
+	transition: 0.2s ease;
+}
+.edit_btn {
+	border-color: teal;
+	margin-left: auto;
+	color: teal;
+	&:hover {
+		background-color: teal;
+		color: var(--whiteBase);
+	}
+}
+.delete_btn {
+	border-color: var(--danger);
+	color: var(--danger);
+	&:hover {
+		background-color: var(--danger);
+		color: var(--whiteBase);
+	}
+}

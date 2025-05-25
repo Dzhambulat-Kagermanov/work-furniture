@@ -9,7 +9,7 @@ export const useMainData = create()((set, get) => ({
 				...data,
 				[slug]: [...(data?.[slug] || []), { id, name, price, type }],
 			}
-			localStorage.setItem(STORAGE_MAIN_DATA, newData)
+			localStorage.setItem(STORAGE_MAIN_DATA, JSON.stringify(newData))
 			return {
 				data: newData,
 			}
@@ -25,7 +25,7 @@ export const useMainData = create()((set, get) => ({
 					}) || []),
 				],
 			}
-			localStorage.setItem(STORAGE_MAIN_DATA, newData)
+			localStorage.setItem(STORAGE_MAIN_DATA, JSON.stringify(newData))
 			return { data: newData }
 		})
 	},
@@ -42,7 +42,7 @@ export const useMainData = create()((set, get) => ({
 					}) || []),
 				],
 			}
-			localStorage.setItem(STORAGE_MAIN_DATA, newData)
+			localStorage.setItem(STORAGE_MAIN_DATA, JSON.stringify(newData))
 			return { data: newData }
 		})
 	},
