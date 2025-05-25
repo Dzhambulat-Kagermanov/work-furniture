@@ -4,18 +4,20 @@ import { SquarePen, Trash2 } from 'lucide-react'
 import {
 	editDataToSlugSelector,
 	removeDataToSlugSelector,
+	setCurrentEditItemIdSelector,
 	useMainData,
 } from '@shared/store/useMainData'
 import { UiTypography } from '@shared/ui/UiTypography'
 import cls from './index.module.scss'
 import { showModalSelector, useModals } from '@shared/store/useModals'
+import { EDIT_CATALOG_ITEM_SLUG } from '@shared/constants/modals-slugs'
 
-const SLUG = ''
+const SLUG = EDIT_CATALOG_ITEM_SLUG
 
 const Item = ({ className, name, id, type, price, slug, ...props }) => {
 	const showModal = useModals(showModalSelector)
 	const removeDataToSlug = useMainData(removeDataToSlugSelector)
-	const editDataToSlug = useMainData(editDataToSlugSelector)
+	const setCurrentEditItemId = useMainData(setCurrentEditItemIdSelector)
 
 	return (
 		<li className={clsx(cls.wrapper, className)} {...props}>
@@ -28,6 +30,7 @@ const Item = ({ className, name, id, type, price, slug, ...props }) => {
 				variant='ghost'
 				className={clsx(cls.btn, cls.edit_btn)}
 				onClick={() => {
+					setCurrentEditItemId({ id })
 					showModal({ slug: SLUG })
 				}}
 			>

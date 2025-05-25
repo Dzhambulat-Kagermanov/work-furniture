@@ -9,11 +9,11 @@ import { BrushCleaning } from 'lucide-react'
 const CatalogList = ({ className, ...props }) => {
 	const dynamicParams = useParams()['slug']
 
-	const data = useMainData(dataSelector)[dynamicParams]
+	const data = useMainData(dataSelector)?.[dynamicParams]
 
 	return (
 		<ul className={clsx(cls.wrapper, className)} {...props}>
-			{data.length ? (
+			{data?.length ? (
 				data.map(({ name, id, type, price }) => {
 					return (
 						<Item

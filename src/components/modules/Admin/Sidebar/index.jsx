@@ -69,10 +69,10 @@ const Sidebar = ({ className, ...props }) => {
 				</UiTypography>
 				<UiTypography
 					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.chairs.value)}
+					to={ROUTES.ADMIN.CATALOG(CATALOGS.chairs.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.chairs.key}`,
+						[cls.active]: path === `/admin/catalogs/${CATALOGS.chairs.key}`,
 					})}
 				>
 					{CATALOGS.chairs.value}
@@ -82,7 +82,7 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.tables.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.tables.key}`,
+						[cls.active]: path === `/admin/catalogs/${CATALOGS.tables.key}`,
 					})}
 				>
 					{CATALOGS.tables.value}
@@ -92,7 +92,8 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.storageSystems.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.storageSystems.key}`,
+						[cls.active]:
+							path === `/admin/catalogs/${CATALOGS.storageSystems.key}`,
 					})}
 				>
 					{CATALOGS.storageSystems.value}
@@ -102,7 +103,8 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.upFurniture.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.upFurniture.key}`,
+						[cls.active]:
+							path === `/admin/catalogs/${CATALOGS.upFurniture.key}`,
 					})}
 				>
 					{CATALOGS.upFurniture.value}
@@ -112,7 +114,7 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.partitions.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.partitions.key}`,
+						[cls.active]: path === `/admin/catalogs/${CATALOGS.partitions.key}`,
 					})}
 				>
 					{CATALOGS.partitions.value}
@@ -122,7 +124,7 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.reception.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.reception.key}`,
+						[cls.active]: path === `/admin/catalogs/${CATALOGS.reception.key}`,
 					})}
 				>
 					{CATALOGS.reception.value}
@@ -132,7 +134,8 @@ const Sidebar = ({ className, ...props }) => {
 					to={ROUTES.ADMIN.CATALOG(CATALOGS.accessories.key)}
 					font='Montserrat-R'
 					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/${CATALOGS.accessories.key}`,
+						[cls.active]:
+							path === `/admin/catalogs/${CATALOGS.accessories.key}`,
 					})}
 				>
 					{CATALOGS.accessories.value}
