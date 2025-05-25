@@ -1,1 +1,2 @@
 export const BURGER_MENU_SLUG = 'BURGER_MENU_SLUG'
+export const SIDEBAR_SLUG = 'SIDEBAR_SLUG'

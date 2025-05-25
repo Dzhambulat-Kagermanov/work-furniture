@@ -1,7 +1,7 @@
 .wrapper {
 	height: 400px;
 	background-image: var(--bg);
-	background-size: 120%;
+	background-size: 140%;
 	position: relative;
 	padding: 25px;
 	border-radius: 15px;
@@ -21,7 +21,7 @@
 		background-color: var(--blackBase-40);
 	}
 	&:hover {
-		background-size: 130%;
+		background-size: 150%;
 		&::before {
 			backdrop-filter: blur(4px);
 		}
