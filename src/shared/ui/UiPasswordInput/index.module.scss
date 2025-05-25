@@ -12,6 +12,9 @@
 	padding: 8px 12px;
 	border-radius: 8px;
 	background-color: var(--whiteBase);
+	&:has(input:disabled) {
+		cursor: not-allowed;
+	}
 }
 .error_message {
 	color: var(--danger);
@@ -24,6 +27,10 @@
 	font-size: 18px;
 	width: 100%;
 	flex: 1;
+	&:disabled {
+		cursor: not-allowed;
+		background-color: inherit;
+	}
 }
 .show_btn {
 	display: flex;

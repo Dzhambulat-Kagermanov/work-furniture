@@ -50,15 +50,15 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 				})}
 			>
 				<UiInput
-					inputProps={{ ...register('name') }}
+					inputProps={{ ...register('name'), disabled: isAdmin }}
 					label='Имя'
 					icon={<ShieldUser />}
 					errorMessage={errors.name?.message}
 				/>
 				<UiPasswordInput
 					icon={<Lock />}
-					isDefaultShowPassword
-					inputProps={{ ...register('password') }}
+					isDefaultShowPassword={false}
+					inputProps={{ ...register('password'), disabled: isAdmin }}
 					label='Пароль'
 					errorMessage={errors.password?.message}
 				/>
