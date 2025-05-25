@@ -8,6 +8,7 @@ import { Achievements } from './Achievements'
 const HomeAboutFabric = ({ className, ...props }) => {
 	return (
 		<UiContainer
+			id='about-us-anchor'
 			variant='shrink'
 			className={clsx(cls.wrapper, className)}
 			{...props}

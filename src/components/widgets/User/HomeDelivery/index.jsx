@@ -10,6 +10,7 @@ const HomeDelivery = ({ className, ...props }) => {
 	const { screenWidth } = useScreen()
 	return (
 		<UiContainer
+			id='delivery-anchor'
 			className={clsx(cls.wrapper, className)}
 			{...props}
 			variant='shrink'

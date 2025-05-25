@@ -5,11 +5,23 @@ import { UiButton } from '@shared/ui/UiButton'
 import { UiTypography } from '@shared/ui/UiTypography'
 
 const CartForm = ({ className, ...props }) => {
+	const products = []
+
+	const handleSubmit = event => {
+		event.preventDefault()
+	}
+
 	return (
-		<form className={clsx(cls.wrapper, className)} {...props}>
-			<CartList />
+		<form
+			className={clsx(cls.wrapper, className)}
+			onSubmit={handleSubmit}
+			{...props}
+		>
+			<CartList products={products} />
 			<UiButton className={cls.btn}>
-				<UiTypography font='JosefinSans-R'>Оформить доставку</UiTypography>
+				<UiTypography font='JosefinSans-R'>
+					{products.length ? 'Оформить доставку' : 'Добавить новые товары'}
+				</UiTypography>
 			</UiButton>
 		</form>
 	)

@@ -15,16 +15,36 @@ import { ROUTES } from '@shared/constants/routes'
 const Navigation = ({ className, ...props }) => {
 	return (
 		<nav className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography Tag={Link} font='Inter-R' to='#' className={cls.link}>
+			<UiTypography
+				Tag={Link}
+				font='Inter-R'
+				to={ROUTES.ABOUT_US}
+				className={cls.link}
+			>
 				<Users /> <p>О нас</p>
 			</UiTypography>
-			<UiTypography Tag={Link} font='Inter-R' to='#' className={cls.link}>
+			<UiTypography
+				Tag={Link}
+				font='Inter-R'
+				to={ROUTES.CATALOG}
+				className={cls.link}
+			>
 				<Grid2X2 /> <p>Каталог</p>
 			</UiTypography>
-			<UiTypography Tag={Link} font='Inter-R' to='#' className={cls.link}>
+			<UiTypography
+				Tag={Link}
+				font='Inter-R'
+				to={ROUTES.OUR_PROJECTS}
+				className={cls.link}
+			>
 				<FolderDot /> <p>Наши проекты</p>
 			</UiTypography>
-			<UiTypography Tag={Link} font='Inter-R' to='#' className={cls.link}>
+			<UiTypography
+				Tag={Link}
+				font='Inter-R'
+				to={ROUTES.DELIVERY}
+				className={cls.link}
+			>
 				<Package /> <p>Доставка</p>
 			</UiTypography>
 			<div className={cls.actions}>

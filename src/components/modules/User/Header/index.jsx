@@ -6,6 +6,7 @@ import cls from './index.module.scss'
 import { useScreen } from '@shared/hooks/useScreen'
 import { MD_MID } from '@shared/constants/breakpoints'
 import { MenuOpenButton } from '@modules/User/Header/MenuOpenButton'
+import { ROUTES } from '@shared/constants/routes'
 
 const Header = ({ className, ...props }) => {
 	const { screenWidth } = useScreen()
@@ -13,7 +14,7 @@ const Header = ({ className, ...props }) => {
 	return (
 		<header className={clsx(cls.wrapper, className)} {...props}>
 			<UiContainer Tag='header' variant='expand' className={cls.container}>
-				<Link to='/' className={cls.logo}>
+				<Link to={ROUTES.HOME} className={cls.logo}>
 					<img src='/images/logo.svg' />
 				</Link>
 				{screenWidth >= MD_MID ? <Navigation /> : <MenuOpenButton />}

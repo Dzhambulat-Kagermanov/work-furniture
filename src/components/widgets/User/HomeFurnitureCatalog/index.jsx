@@ -8,6 +8,7 @@ import { CatalogBlock } from './CatalogBlock'
 const HomeFurnitureCatalog = ({ className, ...props }) => {
 	return (
 		<UiContainer
+			id='catalog-anchor'
 			className={clsx(cls.wrapper, className)}
 			{...props}
 			variant='shrink'

@@ -7,7 +7,11 @@ import cls from './index.module.scss'
 
 const HomeProjects = ({ className, ...props }) => {
 	return (
-		<UiContainer className={clsx(cls.wrapper, className)} {...props}>
+		<UiContainer
+			id='our-projects-anchor'
+			className={clsx(cls.wrapper, className)}
+			{...props}
+		>
 			<UiTypography font='JosefinSans' Tag='h2'>
 				Реализованные проекты
 			</UiTypography>

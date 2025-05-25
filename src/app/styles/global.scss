@@ -2,6 +2,7 @@
 	--greenBase: #3f4021;
 	--greenBase-H: rgb(33, 34, 18);
 	--greenBase-A: rgb(55, 56, 30);
+	--greenBase-D: rgb(139, 141, 78);
 	--green100: #6b6c6e;
 
 	--whiteBase: #fff;
@@ -17,6 +18,10 @@
 
 	--modules-gap: 70px;
 	--header-height: 71px;
+}
+
+* {
+	scroll-margin-top: calc(40px + var(--header-height));
 }
 
 @media screen and (min-width: 481px) {
