@@ -1,0 +1,21 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+	margin-left: auto;
+}
+
+.btn {
+	display: flex;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid var(--greenBase);
+	&:disabled {
+		cursor: not-allowed;
+		border-color: var(--white100);
+	}
+	&:not(:disabled):hover {
+		scale: 1.05;
+		box-shadow: 2px 2px 5px 0 var(--blackBase-20);
+	}
+}

@@ -1,0 +1,14 @@
+.wrapper {
+	padding: 40px 20px;
+}
+
+.title {
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding-bottom: var(--modules-gap);
+	}
+}

@@ -1,0 +1,29 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	column-gap: 50px;
+	font-size: 22px;
+	border-bottom: 2px solid var(--greenBase);
+	padding-bottom: 15px;
+	cursor: pointer;
+	transition: 0.2s ease;
+	&:hover {
+		scale: 1.005;
+	}
+}
+.delete_btn {
+	display: flex;
+	border: 2px solid var(--danger);
+	padding: 10px;
+	border-radius: 7px;
+	transition: 0.2s ease;
+	svg {
+		color: var(--danger);
+	}
+	&:hover {
+		background-color: var(--danger);
+		svg {
+			color: var(--whiteBase);
+		}
+	}
+}
