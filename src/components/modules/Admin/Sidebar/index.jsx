@@ -7,7 +7,6 @@ import { UiButton } from '@shared/ui/UiButton'
 import { SquareArrowLeft, X } from 'lucide-react'
 import { useScreen } from '@shared/hooks/useScreen'
 import { MD_MID } from '@shared/constants/breakpoints'
-import { useState } from 'react'
 import {
 	changeUnmountDelaySelector,
 	hideModalSelector,
