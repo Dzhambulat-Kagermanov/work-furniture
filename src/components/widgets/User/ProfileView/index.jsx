@@ -7,6 +7,7 @@ import { UiButton } from '@shared/ui/UiButton'
 import { UiTypography } from '@shared/ui/UiTypography'
 import {
 	editUserSelector,
+	isAdminSelector,
 	removeUserSelector,
 	unAuthorizationUserSelector,
 	useAuth,
@@ -16,6 +17,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 const ProfileView = ({ className, session: { name, password }, ...props }) => {
+	const isAdmin = useAuth(isAdminSelector)
 	const removeUser = useAuth(removeUserSelector)
 	const unAuthorizationUser = useAuth(unAuthorizationUserSelector)
 	const editUser = useAuth(editUserSelector)
@@ -35,9 +37,12 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 
 	return (
 		<section className={clsx(cls.wrapper, className)} {...props}>
-			<UiTypography font='JosefinSans-R' className={cls.title}>
-				Ваш профиль
-			</UiTypography>
+			<div className={cls.header}>
+				<UiTypography font='JosefinSans-R' className={cls.title}>
+					Ваш профиль
+				</UiTypography>
+				{isAdmin ? <UiButton>Войти в админ панель</UiButton> : null}
+			</div>
 			<form
 				className={cls.form}
 				onSubmit={handleSubmit(({ name, password }) => {
@@ -58,7 +63,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 					errorMessage={errors.password?.message}
 				/>
 				<div className={cls.actions}>
-					<UiButton type='submit' className={clsx(cls.btn)}>
+					<UiButton type='submit' className={clsx(cls.btn)} disabled={isAdmin}>
 						<UiTypography font='JosefinSans-R'>Сохранить</UiTypography>
 					</UiButton>
 					<UiButton

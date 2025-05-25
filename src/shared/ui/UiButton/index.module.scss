@@ -15,6 +15,7 @@
 			background-color: var(--greenBase-A);
 		}
 		&:disabled {
+			opacity: 0.6;
 			background-color: var(--greenBase-D);
 		}
 	}

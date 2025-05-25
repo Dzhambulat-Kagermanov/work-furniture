@@ -1,3 +1,4 @@
+import { ADMIN_USER } from '@shared/constants/env'
 import {
 	STORAGE_USERS_AUTH_KEY,
 	STORAGE_SESSION_AUTH_KEY,
@@ -5,40 +6,68 @@ import {
 import { create } from 'zustand'
 
 export const useAuth = create()((set, get) => ({
+	isAdmin:
+		JSON.parse(localStorage.getItem(STORAGE_SESSION_AUTH_KEY)) !== null
+			? JSON.parse(localStorage.getItem(STORAGE_SESSION_AUTH_KEY))?.name ===
+					ADMIN_USER.name &&
+			  JSON.parse(localStorage.getItem(STORAGE_SESSION_AUTH_KEY))?.password ===
+					ADMIN_USER.password
+			: false,
 	session: JSON.parse(localStorage.getItem(STORAGE_SESSION_AUTH_KEY)),
-	users: JSON.parse(localStorage.getItem(STORAGE_USERS_AUTH_KEY)) || [],
+	users: JSON.parse(localStorage.getItem(STORAGE_USERS_AUTH_KEY)) || [
+		ADMIN_USER,
+	],
 	addUser: ({ name, password }) => {
 		set(({ users }) => {
-			localStorage.setItem(
-				STORAGE_USERS_AUTH_KEY,
-				JSON.stringify([...users, { name, password }])
-			)
-			localStorage.setItem(
-				STORAGE_SESSION_AUTH_KEY,
-				JSON.stringify({ name, password })
-			)
-			return {
-				users: [...users, { name, password }],
-				session: { name, password },
+			const hasUser = users.find(props => {
+				return props.name === name
+			})
+			if (hasUser) {
+				alert('Такой пользователь уже существует')
+			} else {
+				localStorage.setItem(
+					STORAGE_USERS_AUTH_KEY,
+					JSON.stringify([...users, { name, password }])
+				)
+				localStorage.setItem(
+					STORAGE_SESSION_AUTH_KEY,
+					JSON.stringify({ name, password })
+				)
+				if (name === ADMIN_USER.name && password === ADMIN_USER.password) {
+					get().setIsAdmin(true)
+				} else {
+					get().setIsAdmin(false)
+				}
+
+				return {
+					users: [...users, { name, password }],
+					session: { name, password },
+				}
 			}
 		})
 	},
 	removeUser: ({ name, password }) => {
 		set(({ users }) => {
-			const data = users.filter(props => {
+			const updatedUsers = users.filter(props => {
 				if (props.name === name && props.password === password) {
 					return false
 				}
 				return true
 			})
 
-			if (data.length !== users.length) {
-				localStorage.setItem(STORAGE_USERS_AUTH_KEY, JSON.stringify(data))
+			if (updatedUsers.length !== users.length) {
+				localStorage.setItem(
+					STORAGE_USERS_AUTH_KEY,
+					JSON.stringify(updatedUsers)
+				)
+				if (name === ADMIN_USER.name && password === ADMIN_USER.password) {
+					get().setIsAdmin(false)
+				}
 				get().unAuthorizationUser({ skip: true })
 			}
 
 			return {
-				users: data,
+				users: updatedUsers,
 			}
 		})
 	},
@@ -58,6 +87,12 @@ export const useAuth = create()((set, get) => ({
 					}) !== undefined
 
 				if (isValid) {
+					if (
+						session.name === ADMIN_USER.name &&
+						session.password === ADMIN_USER.password
+					) {
+						get().setIsAdmin(false)
+					}
 					localStorage.removeItem(STORAGE_SESSION_AUTH_KEY)
 				}
 
@@ -83,6 +118,11 @@ export const useAuth = create()((set, get) => ({
 					STORAGE_SESSION_AUTH_KEY,
 					JSON.stringify({ name, password })
 				)
+				if (name === ADMIN_USER.name && password === ADMIN_USER.password) {
+					get().setIsAdmin(true)
+				} else {
+					get().setIsAdmin(false)
+				}
 			}
 
 			return {
@@ -127,6 +167,13 @@ export const useAuth = create()((set, get) => ({
 			}
 		})
 	},
+	setIsAdmin: value => {
+		set(() => {
+			return {
+				isAdmin: value,
+			}
+		})
+	},
 }))
 
 export const sessionSelector = state => state.session
@@ -136,3 +183,4 @@ export const removeUserSelector = state => state.removeUser
 export const authorizationUserSelector = state => state.authorizationUser
 export const unAuthorizationUserSelector = state => state.unAuthorizationUser
 export const editUserSelector = state => state.editUser
+export const isAdminSelector = state => state.isAdmin
