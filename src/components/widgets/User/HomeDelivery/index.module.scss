@@ -1,0 +1,36 @@
+.wrapper {
+	padding: 40px 20px;
+}
+.title {
+	font-size: 28px;
+	text-align: center;
+}
+.subtitle {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+.content {
+	display: flex;
+	column-gap: 40px;
+	& > img {
+		width: 40%;
+		object-fit: cover;
+	}
+}
+@media screen and (min-width: 601px) {
+	.title {
+		font-size: 36px;
+	}
+	.subtitle {
+		font-size: 27px;
+		margin-top: 50px;
+		margin-bottom: 80px;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding-bottom: var(--modules-gap);
+	}
+}

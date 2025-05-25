@@ -1,0 +1,23 @@
+.wrapper {
+	flex-grow: 1;
+}
+.list {
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+	font-size: 24px;
+}
+
+.text {
+	font-size: 24px;
+}
+
+@media screen and (min-width: 601px) {
+	.list {
+		margin-bottom: 100px;
+	}
+	.text {
+		font-size: 30px;
+	}
+}

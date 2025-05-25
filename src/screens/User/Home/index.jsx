@@ -6,6 +6,7 @@ import { HomeAdvantages } from '@widgets/User/HomeAdvantages'
 import { HomeProjects } from '@widgets/User/HomeProjects'
 import { HomeFurnitureCatalog } from '@widgets/User/HomeFurnitureCatalog'
 import { HomeStagesWork } from '@widgets/User/HomeStagesWork'
+import { HomeDelivery } from '@widgets/User/HomeDelivery'
 
 const HomeScreen = ({ className, ...props }) => {
 	return (
@@ -16,6 +17,7 @@ const HomeScreen = ({ className, ...props }) => {
 			<HomeProjects />
 			<HomeFurnitureCatalog />
 			<HomeStagesWork />
+			<HomeDelivery />
 		</main>
 	)
 }
