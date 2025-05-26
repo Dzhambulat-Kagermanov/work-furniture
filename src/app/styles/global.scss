@@ -19,7 +19,7 @@
 	--danger-H: rgb(156, 33, 33);
 
 	--modules-gap: 70px;
-	--header-height: 71px;
+	--header-height: 254px;
 }
 
 * {
@@ -28,6 +28,6 @@
 
 @media screen and (min-width: 481px) {
 	body {
-		--header-height: 89px;
+		--header-height: 327px;
 	}
 }
