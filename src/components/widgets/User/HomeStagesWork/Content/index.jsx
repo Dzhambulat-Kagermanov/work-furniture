@@ -2,8 +2,12 @@ import clsx from 'clsx'
 import cls from './index.module.scss'
 import { UiTypography } from '@shared/ui/UiTypography'
 import { ContentItem } from '../ContentItem'
+import { showModalSelector, useModals } from '@shared/store/useModals'
+import { HOME_STAGES_WORK_CONSULTATION_SLUG } from '@shared/constants/modals-slugs'
 
 const Content = ({ className, ...props }) => {
+	const showModal = useModals(showModalSelector)
+
 	return (
 		<div className={clsx(cls.wrapper, className)} {...props}>
 			<UiTypography font='Montserrat-R' className={cls.title}>
@@ -11,6 +15,9 @@ const Content = ({ className, ...props }) => {
 			</UiTypography>
 			<ul className={cls.content}>
 				<ContentItem
+					onClick={() => {
+						showModal({ slug: HOME_STAGES_WORK_CONSULTATION_SLUG })
+					}}
 					btnText='Проконсультироваться с дизайнером'
 					count={1}
 					subtitle='Давайте создадим ваше идеальное рабочее пространство! Мы вместе определим ваши потребности, оптимизируем планировку и составим подробный план вашего офиса'

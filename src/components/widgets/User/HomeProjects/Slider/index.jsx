@@ -37,11 +37,11 @@ const Slider = ({ className, ...props }) => {
 					<div
 						className={cls.content}
 						style={{
-							'--bg': "url('/images/User/Home/Projects/slide-background.png')",
+							'--bg': "url('/images/User/Home/Projects/item-1.png')",
 						}}
 					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
-							Название организации 1
+							Офис: ООО "Энергия"
 						</UiTypography>
 					</div>
 				</SwiperSlide>
@@ -49,11 +49,11 @@ const Slider = ({ className, ...props }) => {
 					<div
 						className={cls.content}
 						style={{
-							'--bg': "url('/images/User/Home/Projects/item-2.webp')",
+							'--bg': "url('/images/User/Home/Projects/item-2.png')",
 						}}
 					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
-							Название организации 2
+							Офис: АО "Техносфера"
 						</UiTypography>
 					</div>
 				</SwiperSlide>
@@ -61,11 +61,11 @@ const Slider = ({ className, ...props }) => {
 					<div
 						className={cls.content}
 						style={{
-							'--bg': "url('/images/User/Home/Projects/item-3.webp')",
+							'--bg': "url('/images/User/Home/Projects/item-3.png')",
 						}}
 					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
-							Название организации 3
+							Офис: ЗАО "Инновации"
 						</UiTypography>
 					</div>
 				</SwiperSlide>

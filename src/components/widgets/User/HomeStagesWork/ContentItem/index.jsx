@@ -10,6 +10,7 @@ const ContentItem = ({
 	title,
 	count,
 	subtitle,
+	onClick,
 	btnText,
 	...props
 }) => {
@@ -23,8 +24,9 @@ const ContentItem = ({
 				{subtitle}
 			</UiTypography>
 			<UiButton
-				onClick={() => {
-					navigate(ROUTES.PREVIEW)
+				onClick={e => {
+					console.log(onClick)
+					onClick ? onClick(e) : navigate(ROUTES.PREVIEW)
 				}}
 				className={clsx(cls.btn, cls.item_btn)}
 			>

@@ -1,0 +1,35 @@
+.wrapper {
+}
+.label {
+	margin-bottom: 2px;
+	font-size: 18px;
+}
+.content {
+	border: 1px solid var(--green100);
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	padding: 8px 12px;
+	border-radius: 8px;
+	background-color: var(--whiteBase);
+	&:has(input:disabled) {
+		cursor: not-allowed;
+	}
+}
+.error_message {
+	color: var(--danger);
+	margin-top: 2px;
+	font-size: 18px;
+}
+.input {
+	min-height: 150px;
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 18px;
+	width: 100%;
+	flex: 1;
+	&:disabled {
+		cursor: not-allowed;
+		background-color: inherit;
+	}
+}

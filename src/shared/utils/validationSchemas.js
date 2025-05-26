@@ -17,3 +17,26 @@ export const ADMIN_CATALOG_ADD_SCHEMA = Yup.object().shape({
 		.max(14, 'Имя слишком длинное, максимум 14 символов'),
 	price: Yup.string().required('Введите цену она обязательна'),
 })
+export const HOME_STAGES_WORK_CONSULTATION_SCHEMA = Yup.object().shape({
+	firstName: Yup.string()
+		.required('Имя обязательно для заполнения')
+		.min(2, 'Имя должно содержать минимум 2 символа')
+		.max(14, 'Имя не должно превышать 14 символов')
+		.matches(
+			/^[a-zA-Zа-яА-ЯёЁ\s-]+$/,
+			'Имя может содержать только буквы и дефисы'
+		),
+	lastName: Yup.string()
+		.required('Фамилия обязательна для заполнения')
+		.min(2, 'Фамилия должна содержать минимум 2 символа')
+		.max(14, 'Фамилия не должна превышать 14 символов')
+		.matches(
+			/^[a-zA-Zа-яА-ЯёЁ\s-]+$/,
+			'Фамилия может содержать только буквы и дефисы'
+		),
+	email: Yup.string()
+		.required('Email обязателен для заполнения')
+		.email('Введите корректный email')
+		.max(100, 'Email не должен превышать 100 символов'),
+	description: Yup.string().optional('Описание обязательно для заполнения'),
+})

@@ -7,6 +7,7 @@ import { HomeProjects } from '@widgets/User/HomeProjects'
 import { HomeFurnitureCatalog } from '@widgets/User/HomeFurnitureCatalog'
 import { HomeStagesWork } from '@widgets/User/HomeStagesWork'
 import { HomeDelivery } from '@widgets/User/HomeDelivery'
+import { HomeStagesWorkConsultationModal } from '@widgets/User/HomeStagesWorkConsultationModal'
 
 const HomeScreen = ({ className, ...props }) => {
 	return (
@@ -18,6 +19,7 @@ const HomeScreen = ({ className, ...props }) => {
 			<HomeFurnitureCatalog />
 			<HomeStagesWork />
 			<HomeDelivery />
+			<HomeStagesWorkConsultationModal />
 		</main>
 	)
 }
