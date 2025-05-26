@@ -2,6 +2,8 @@
 	background-color: var(--greenBase);
 	padding: 50px 0;
 	color: var(--whiteBase);
+	position: relative;
+	z-index: 2;
 }
 .data {
 	display: flex;
