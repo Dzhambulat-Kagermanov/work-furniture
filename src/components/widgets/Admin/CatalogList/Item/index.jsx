@@ -11,6 +11,7 @@ import { UiTypography } from '@shared/ui/UiTypography'
 import cls from './index.module.scss'
 import { showModalSelector, useModals } from '@shared/store/useModals'
 import { EDIT_CATALOG_ITEM_SLUG } from '@shared/constants/modals-slugs'
+import { formatPrice } from '@shared/lib/formatPrice'
 
 const SLUG = EDIT_CATALOG_ITEM_SLUG
 
@@ -23,7 +24,7 @@ const Item = ({ className, name, id, type, price, slug, ...props }) => {
 		<li className={clsx(cls.wrapper, className)} {...props}>
 			<UiTypography font='Montserrat'>{name}</UiTypography>
 			<UiTypography font='Montserrat' Tag='strong'>
-				{price}
+				{formatPrice(price)} ₽
 			</UiTypography>
 			<UiTypography font='Montserrat'>{type}</UiTypography>
 			<UiButton
