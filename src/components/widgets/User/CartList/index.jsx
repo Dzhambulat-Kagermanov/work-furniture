@@ -3,12 +3,17 @@ import cls from './index.module.scss'
 import { Item } from './Item'
 import { ShoppingBasket } from 'lucide-react'
 import { UiTypography } from '@shared/ui/UiTypography'
+import { sessionSelector, useAuth } from '@shared/store/useAuth'
+import { cartSelector, useCart } from '@shared/store/useCart'
 
 const CartList = ({ className, products, ...props }) => {
+	const session = useAuth(sessionSelector)
+	const cart = useCart(cartSelector)[session?.name] || []
+
 	return (
 		<ul className={clsx(cls.wrapper, className)} {...props}>
-			{products.length ? (
-				products.map(data => {
+			{cart.length ? (
+				cart.map(data => {
 					return <Item data={data} key={data.id} />
 				})
 			) : (

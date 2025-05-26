@@ -5,14 +5,18 @@ import { ItemQntAction } from '../ItemQntActions'
 import { useNavigate } from 'react-router-dom'
 import { UiButton } from '@shared/ui/UiButton'
 import { Trash2 } from 'lucide-react'
+import { resetCartItemSelector, useCart } from '@shared/store/useCart'
+import { sessionSelector, useAuth } from '@shared/store/useAuth'
 
 const Item = ({
 	className,
-	data: { name, price, id, type, qnt },
+	data: { name, price, id, type, qnt, slug },
 	onClick,
 	...props
 }) => {
+	const resetCartItem = useCart(resetCartItemSelector)
 	const navigate = useNavigate()
+	const session = useAuth(sessionSelector)
 
 	return (
 		<li
@@ -28,8 +32,16 @@ const Item = ({
 				{price}
 			</UiTypography>
 			<UiTypography font='Inter-R'>{type}</UiTypography>
-			<ItemQntAction>{qnt}</ItemQntAction>
-			<UiButton variant='ghost' className={cls.delete_btn}>
+			<ItemQntAction id={id} slug={slug}>
+				{qnt}
+			</ItemQntAction>
+			<UiButton
+				variant='ghost'
+				className={cls.delete_btn}
+				onClick={() => {
+					resetCartItem({ name: session?.name, id })
+				}}
+			>
 				<Trash2 />
 			</UiButton>
 		</li>

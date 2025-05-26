@@ -17,33 +17,8 @@
 		margin-left: auto;
 	}
 }
-.delete_btn {
-	display: flex;
-	border: 2px solid var(--danger);
-	padding: 8px;
-	border-radius: 7px;
-	transition: 0.2s ease;
-	svg {
-		width: 19px;
-		height: 19px;
-		color: var(--danger);
-	}
-	&:hover {
-		background-color: var(--danger);
-		svg {
-			color: var(--whiteBase);
-		}
-	}
-}
 
 @media screen and (min-width: 601px) {
-	.delete_btn {
-		padding: 10px;
-		svg {
-			width: 24px;
-			height: 24px;
-		}
-	}
 	.wrapper {
 		column-gap: 30px;
 		font-size: 18px;

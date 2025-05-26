@@ -22,10 +22,12 @@ export const useCart = create()(
 					updatedItems[itemIndexInCart] = {
 						...updatedItems[itemIndexInCart],
 						qnt: updatedItems[itemIndexInCart].qnt + 1,
+						slug,
 					}
 				} else {
-					updatedItems = [...currentItems, { ...mainData, qnt: 1 }]
+					updatedItems = [...currentItems, { ...mainData, qnt: 1, slug }]
 				}
+				console.log(updatedItems)
 
 				const newCart = {
 					...cart,
@@ -55,8 +57,29 @@ export const useCart = create()(
 					updatedItems[itemIndexInCart] = {
 						...item,
 						qnt: item.qnt - 1,
+						slug,
 					}
 				}
+
+				const newCart = {
+					...cart,
+					[name]: updatedItems,
+				}
+
+				localStorage.setItem(STORAGE_CART_DATA, JSON.stringify(newCart))
+				return { cart: newCart }
+			})
+		},
+		getItemQnt: ({ name, id }) => {
+			return (get().cart?.[name] || []).find(props => props.id === id)?.qnt
+		},
+		cartHasItem: ({ name, id }) => {
+			return (get().cart?.[name] || []).some(props => props.id === id)
+		},
+		resetCartItem: ({ name, id }) => {
+			set(({ cart }) => {
+				const currentItems = cart[name] || []
+				const updatedItems = currentItems.filter(item => item.id !== id)
 
 				const newCart = {
 					...cart,
@@ -81,3 +104,4 @@ export const addCartItemSelector = state => state.addCartItem
 export const deleteCartItemSelector = state => state.deleteCartItem
 export const getItemQntSelector = state => state.getItemQnt
 export const cartHasItemSelector = state => state.cartHasItem
+export const resetCartItemSelector = state => state.resetCartItem

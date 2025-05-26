@@ -52,9 +52,6 @@ const Item = ({
 					<UiTypography font='Montserrat-R'>В корзину</UiTypography>
 				</UiButton>
 			)}
-			<UiButton variant='ghost' className={cls.delete_btn}>
-				<Trash2 />
-			</UiButton>
 		</li>
 	)
 }
