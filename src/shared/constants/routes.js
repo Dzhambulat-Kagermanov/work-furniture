@@ -3,7 +3,7 @@ export const ROUTES = {
 	PROFILE: '/profile',
 	CART: '/cart',
 	CATALOG: '/#catalog-anchor',
-	CATALOG_ITEM: '/catalog',
+	CATALOG_ITEM: slug => `/catalogs/${slug}`,
 	ABOUT_US: '/#about-us-anchor',
 	OUR_PROJECTS: '/#our-projects-anchor',
 	DELIVERY: '/#delivery-anchor',
