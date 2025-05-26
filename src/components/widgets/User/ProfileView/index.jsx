@@ -88,7 +88,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 						font='Montserrat-R'
 						className={clsx(cls.btn)}
 					>
-						Выйти
+						<UiTypography font='Montserrat-R'>Выйти</UiTypography>
 					</UiButton>
 					<UiButton
 						variant='danger'
