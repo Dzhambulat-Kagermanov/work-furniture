@@ -14,7 +14,7 @@ import { addDataToSlugSelector, useMainData } from '@shared/store/useMainData'
 import { useParams } from 'react-router-dom'
 import { nanoid } from 'nanoid'
 import { useMemo } from 'react'
-import { CATALOGS } from '@shared/constants/catalogs'
+import { getSlugValue } from '@shared/lib/getSlugValue'
 
 const SLUG = ADD_CATALOG_ITEM_SLUG
 
@@ -24,19 +24,7 @@ const CatalogAddItemModal = ({ className, ...props }) => {
 	const addDataToSlug = useMainData(addDataToSlugSelector)
 
 	const type = useMemo(() => {
-		return slug === CATALOGS.chairs.key
-			? CATALOGS.chairs.value
-			: slug === CATALOGS.tables.key
-			? CATALOGS.tables.value
-			: slug === CATALOGS.storageSystems.key
-			? CATALOGS.storageSystems.value
-			: slug === CATALOGS.upFurniture.key
-			? CATALOGS.upFurniture.value
-			: slug === CATALOGS.partitions.key
-			? CATALOGS.partitions.value
-			: slug === CATALOGS.reception.key
-			? CATALOGS.reception.value
-			: slug === CATALOGS.accessories.key
+		return getSlugValue(slug)
 	}, [slug])
 
 	const {

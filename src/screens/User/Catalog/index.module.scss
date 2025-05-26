@@ -1,0 +1,16 @@
+.wrapper {
+	padding: 40px 20px;
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - var(--header-height));
+}
+
+.title {
+	font-size: 36px;
+}
+
+@media screen and (min-width: 1025px) {
+	.wrapper {
+		padding-bottom: var(--modules-gap);
+	}
+}
