@@ -3,10 +3,12 @@ import cls from './index.module.scss'
 import { CartList } from '../CartList'
 import { UiButton } from '@shared/ui/UiButton'
 import { UiTypography } from '@shared/ui/UiTypography'
+import { clearCartItemsSelector, useCart } from '@shared/store/useCart'
+import { sessionSelector, useAuth } from '@shared/store/useAuth'
 
-const CartForm = ({ className, ...props }) => {
-	const products = []
-
+const CartForm = ({ className, cart, ...props }) => {
+	const session = useAuth(sessionSelector)
+	const clearCartItems = useCart(clearCartItemsSelector)
 	const handleSubmit = event => {
 		event.preventDefault()
 	}
@@ -17,11 +19,16 @@ const CartForm = ({ className, ...props }) => {
 			onSubmit={handleSubmit}
 			{...props}
 		>
-			<CartList products={products} />
-			<UiButton className={cls.btn}>
-				<UiTypography font='Montserrat-R'>
-					{products.length ? 'Оформить доставку' : 'Добавить новые товары'}
-				</UiTypography>
+			<CartList />
+			<UiButton
+				className={cls.btn}
+				disabled={!cart.length}
+				onClick={() => {
+					clearCartItems(session?.name)
+					alert('Доставка оформлена')
+				}}
+			>
+				<UiTypography font='Montserrat-R'>Оформить доставку</UiTypography>
 			</UiButton>
 		</form>
 	)

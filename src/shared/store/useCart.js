@@ -96,6 +96,21 @@ export const useCart = create()(
 		cartHasItem: ({ name, id }) => {
 			return (get().cart?.[name] || []).some(props => props.id === id)
 		},
+		clearCartItems: name => {
+			set(({ cart }) => {
+				const newCart = { ...cart }
+				delete newCart[name] //
+
+				localStorage.setItem(STORAGE_CART_DATA, JSON.stringify(newCart))
+				return { cart: newCart }
+			})
+		},
+		getItemQnt: ({ name, id }) => {
+			return (get().cart?.[name] || []).find(props => props.id === id)?.qnt
+		},
+		cartHasItem: ({ name, id }) => {
+			return (get().cart?.[name] || []).some(props => props.id === id)
+		},
 	}))
 )
 
@@ -105,3 +120,4 @@ export const deleteCartItemSelector = state => state.deleteCartItem
 export const getItemQntSelector = state => state.getItemQnt
 export const cartHasItemSelector = state => state.cartHasItem
 export const resetCartItemSelector = state => state.resetCartItem
+export const clearCartItemsSelector = state => state.clearCartItems

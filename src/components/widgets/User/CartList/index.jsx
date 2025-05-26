@@ -6,7 +6,7 @@ import { UiTypography } from '@shared/ui/UiTypography'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
 import { cartSelector, useCart } from '@shared/store/useCart'
 
-const CartList = ({ className, products, ...props }) => {
+const CartList = ({ className, ...props }) => {
 	const session = useAuth(sessionSelector)
 	const cart = useCart(cartSelector)[session?.name] || []
 
