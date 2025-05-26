@@ -36,7 +36,7 @@ const HomeHero = ({ className, ...props }) => {
 						</UiButton>
 						<UiButton
 							onClick={() => {
-								navigate(ROUTES.PREVIEW)
+								navigate(ROUTES.CATALOG)
 							}}
 						>
 							<UiTypography font='Montserrat-R'>В каталог</UiTypography>
