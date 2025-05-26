@@ -1,7 +1,14 @@
 import clsx from 'clsx'
 import cls from './index.module.scss'
 
-const UiTypography = ({ font, Tag = 'p', className, children, ...props }) => {
+const UiTypography = ({
+	font,
+	Tag = 'p',
+	className,
+	style,
+	children,
+	...props
+}) => {
 	const FONT_INFO = font.split('-')
 	let WEIGHT = 400
 
@@ -44,6 +51,7 @@ const UiTypography = ({ font, Tag = 'p', className, children, ...props }) => {
 			style={{
 				'--font': FONT_INFO[0],
 				'--weight': WEIGHT,
+				...style,
 			}}
 			{...props}
 		>

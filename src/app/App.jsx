@@ -9,6 +9,7 @@ import { ScrollToAnchor } from './HashLink'
 import { ROUTES } from '@shared/constants/routes'
 import { ProfileScreen } from '@screens/User/Profile'
 import { SidebarLayout } from '@layouts/Sidebar'
+import { Home3DFurnitureModal } from '@widgets/User/Home3DFurniturePreview'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route element={<HeaderFooterBurgerMenu />}>
 					<Route path={ROUTES.HOME} element={<HomeScreen />} />
 					<Route path={ROUTES.CART} element={<CartScreen />} />
+					<Route path={ROUTES.PREVIEW} element={<Home3DFurnitureModal />} />
 					<Route path='/catalogs/:slug' element={<CatalogScreen />} />
 					<Route path={ROUTES.PROFILE} element={<ProfileScreen />} />
 				</Route>

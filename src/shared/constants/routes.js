@@ -1,5 +1,6 @@
 export const ROUTES = {
 	HOME: '/',
+	PREVIEW: '/preview',
 	PROFILE: '/profile',
 	CART: '/cart',
 	CATALOG: '/#catalog-anchor',
