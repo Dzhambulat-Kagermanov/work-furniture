@@ -1,6 +1,6 @@
 import { Sidebar } from '@modules/Admin/Sidebar'
 import cls from './index.module.scss'
-import { Outlet, useLocation, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { AlignJustify } from 'lucide-react'
 import {
 	showModalSelector,
@@ -16,6 +16,10 @@ import { useScreen } from '@shared/hooks/useScreen'
 import { MD_MID } from '@shared/constants/breakpoints'
 import { UiTypography } from '@shared/ui/UiTypography'
 import { Plus } from 'lucide-react'
+import { sessionSelector, useAuth } from '@shared/store/useAuth'
+import { useEffect } from 'react'
+import { ADMIN_USER } from '@shared/constants/env'
+import { ROUTES } from '@shared/constants/routes'
 
 const SLUG = SIDEBAR_SLUG
 
@@ -24,6 +28,23 @@ const SidebarLayout = () => {
 	const toggle = useModals(toggleModalSelector)
 	const { screenWidth } = useScreen()
 	const showModal = useModals(showModalSelector)
+	const session = useAuth(sessionSelector)
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (
+			session?.name !== ADMIN_USER.name &&
+			session?.password !== ADMIN_USER.password
+		) {
+			navigate(ROUTES.PROFILE)
+		}
+	}, [session])
+
+	if (
+		session?.name !== ADMIN_USER.name &&
+		session?.password !== ADMIN_USER.password
+	)
+		return null
 
 	return (
 		<div className={cls.wrapper}>

@@ -10,7 +10,8 @@ import {
 	useCart,
 } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { ROUTES } from '@shared/constants/routes'
 
 const ItemQntAction = ({ className, children, id, ...props }) => {
 	const slug = useParams()['slug']
@@ -18,14 +19,18 @@ const ItemQntAction = ({ className, children, id, ...props }) => {
 	const addItem = useCart(addCartItemSelector)
 	const deleteItem = useCart(deleteCartItemSelector)
 	const qnt = useCart(getItemQntSelector)
-
+	const navigate = useNavigate()
 	return (
 		<div className={clsx(cls.wrapper, className)} {...props}>
 			<UiButton
 				variant='ghost'
 				className={clsx(cls.btn, cls.minus)}
 				onClick={() => {
-					deleteItem({ id, name: session?.name, slug })
+					if (session) deleteItem({ id, name: session.name, slug })
+					else {
+						console.log(1)
+						navigate(ROUTES.PROFILE)
+					}
 				}}
 			>
 				<Minus />
@@ -37,7 +42,10 @@ const ItemQntAction = ({ className, children, id, ...props }) => {
 				variant='ghost'
 				className={clsx(cls.btn, cls.plus)}
 				onClick={() => {
-					addItem({ id, name: session?.name, slug })
+					if (session) addItem({ id, name: session.name, slug })
+					else {
+						navigate(ROUTES.PROFILE)
+					}
 				}}
 			>
 				<Plus />

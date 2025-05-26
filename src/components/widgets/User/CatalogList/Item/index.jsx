@@ -4,13 +4,13 @@ import { UiTypography } from '@shared/ui/UiTypography'
 import { ItemQntAction } from '../ItemQntActions'
 import { useNavigate, useParams } from 'react-router-dom'
 import { UiButton } from '@shared/ui/UiButton'
-import { Trash2 } from 'lucide-react'
 import {
 	addCartItemSelector,
 	cartHasItemSelector,
 	useCart,
 } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
+import { ROUTES } from '@shared/constants/routes'
 
 const Item = ({
 	className,
@@ -46,7 +46,10 @@ const Item = ({
 				<UiButton
 					className={cls.btn}
 					onClick={() => {
-						addCartItem({ name: session?.name, id, slug })
+						if (session) addCartItem({ id, name: session.name, slug })
+						else {
+							navigate(ROUTES.PROFILE)
+						}
 					}}
 				>
 					<UiTypography font='Montserrat-R'>В корзину</UiTypography>
