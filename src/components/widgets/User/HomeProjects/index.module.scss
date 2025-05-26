@@ -1,26 +1,26 @@
 .wrapper {
 	padding: 40px 20px;
 	h2 {
-		font-size: 32px;
+		font-size: 24px;
 		text-align: center;
 		margin-bottom: 30px;
 	}
 }
 .design.btn {
 	margin: 30px auto 0 auto;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 @media screen and (min-width: 769px) {
 	.wrapper {
 		h2 {
 			margin-bottom: 60px;
-			font-size: 42px;
+			font-size: 36px;
 		}
 	}
 	.design.btn {
 		margin: 50px auto 0 auto;
-		font-size: 26px;
+		font-size: 22px;
 	}
 }
 @media screen and (min-width: 1025px) {

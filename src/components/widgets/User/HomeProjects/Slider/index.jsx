@@ -34,21 +34,36 @@ const Slider = ({ className, ...props }) => {
 				}}
 			>
 				<SwiperSlide className={cls.slide}>
-					<div className={cls.content}>
+					<div
+						className={cls.content}
+						style={{
+							'--bg': "url('/images/User/Home/Projects/slide-background.png')",
+						}}
+					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 1
 						</UiTypography>
 					</div>
 				</SwiperSlide>
 				<SwiperSlide className={cls.slide}>
-					<div className={cls.content}>
+					<div
+						className={cls.content}
+						style={{
+							'--bg': "url('/images/User/Home/Projects/item-2.webp')",
+						}}
+					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 2
 						</UiTypography>
 					</div>
 				</SwiperSlide>
 				<SwiperSlide className={cls.slide}>
-					<div className={cls.content}>
+					<div
+						className={cls.content}
+						style={{
+							'--bg': "url('/images/User/Home/Projects/item-3.webp')",
+						}}
+					>
 						<UiTypography font='Montserrat-R' Tag='h2'>
 							Название организации 3
 						</UiTypography>

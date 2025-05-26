@@ -13,7 +13,7 @@
 		align-items: flex-end;
 		justify-content: center;
 		height: 450px;
-		background-image: url('/images/User/Home/Projects/slide-background.png');
+		background-image: var(--bg);
 		position: relative;
 		background-size: cover;
 		&::before {
@@ -26,7 +26,7 @@
 			color: var(--whiteBase);
 			position: relative;
 			z-index: 3;
-			font-size: 24px;
+			font-size: 18px;
 			text-align: center;
 		}
 	}
@@ -45,7 +45,7 @@
 		.content {
 			height: 710px;
 			h2 {
-				font-size: 32px;
+				font-size: 24px;
 			}
 		}
 	}

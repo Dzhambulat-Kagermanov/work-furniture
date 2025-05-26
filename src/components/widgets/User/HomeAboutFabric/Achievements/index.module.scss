@@ -16,6 +16,9 @@
 		background-color: var(--greenBase);
 		color: var(--white100);
 	}
+	& > p {
+		margin-top: 10px;
+	}
 }
 .icon {
 	display: flex;
@@ -29,8 +32,8 @@
 	p {
 		line-height: 80%;
 		font-size: 32px;
-		margin-top: 10px;
 		text-align: center;
+		color: var(--green100);
 	}
 	& > img {
 		width: 60%;

@@ -2,22 +2,23 @@
 	flex-grow: 1;
 }
 .list {
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	display: flex;
 	flex-direction: column;
-	row-gap: 40px;
-	font-size: 24px;
+	row-gap: 20px;
+	font-size: 18px;
 }
 
 .text {
-	font-size: 24px;
+	font-size: 18px;
 }
 
 @media screen and (min-width: 601px) {
 	.list {
-		margin-bottom: 100px;
+		margin-bottom: 70px;
+		font-size: 22px;
 	}
 	.text {
-		font-size: 30px;
+		font-size: 22px;
 	}
 }
