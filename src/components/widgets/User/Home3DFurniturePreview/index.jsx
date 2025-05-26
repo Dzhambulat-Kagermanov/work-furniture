@@ -67,7 +67,9 @@ const Home3DFurnitureModal = () => {
 	)
 
 	return (
-		<div style={{ display: 'flex', height: '100vh' }}>
+		<div
+			style={{ display: 'flex', height: 'calc(100vh - var(--header-height))' }}
+		>
 			{/* Панель управления */}
 			<div style={{ width: '300px', padding: '20px', background: '#f5f5f5' }}>
 				<UiTypography

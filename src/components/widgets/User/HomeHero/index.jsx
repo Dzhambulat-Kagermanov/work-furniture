@@ -3,8 +3,12 @@ import clsx from 'clsx'
 import { UiTypography } from '@shared/ui/UiTypography'
 import { UiButton } from '@shared/ui/UiButton'
 import cls from './index.module.scss'
+import { ROUTES } from '@shared/constants/routes'
+import { useNavigate } from 'react-router-dom'
 
 const HomeHero = ({ className, ...props }) => {
+	const navigate = useNavigate()
+
 	return (
 		<section className={cls.wrapper}>
 			<UiContainer
@@ -21,12 +25,20 @@ const HomeHero = ({ className, ...props }) => {
 						имеет значение.
 					</UiTypography>
 					<div className={cls.actions}>
-						<UiButton>
+						<UiButton
+							onClick={() => {
+								navigate(ROUTES.PREVIEW)
+							}}
+						>
 							<UiTypography font='Montserrat-R'>
 								Создай свой проект
 							</UiTypography>
 						</UiButton>
-						<UiButton>
+						<UiButton
+							onClick={() => {
+								navigate(ROUTES.PREVIEW)
+							}}
+						>
 							<UiTypography font='Montserrat-R'>В каталог</UiTypography>
 						</UiButton>
 					</div>
