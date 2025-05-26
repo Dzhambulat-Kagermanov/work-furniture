@@ -11,10 +11,11 @@ import {
 } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
 import { ROUTES } from '@shared/constants/routes'
+import { formatPrice } from '@shared/lib/formatPrice'
 
 const Item = ({
 	className,
-	data: { name, price, id, type, qnt },
+	data: { name, price, id, type, qnt, img },
 	onClick,
 	...props
 }) => {
@@ -32,14 +33,17 @@ const Item = ({
 			{...props}
 			onClick={e => {
 				onClick && onClick(e)
-				navigate('#')
 			}}
 		>
-			<UiTypography font='Inter-R'>{name}</UiTypography>
-			<UiTypography Tag='strong' font='Inter-R'>
-				{price}
+			<UiTypography font='Montserrat-SB' className={cls.name}>
+				{name}
 			</UiTypography>
-			<UiTypography font='Inter-R'>{type}</UiTypography>
+			<UiTypography Tag='strong' font='Montserrat-B' className={cls.price}>
+				{formatPrice(price)} ₽
+			</UiTypography>
+			<UiTypography font='Inter-R' className={cls.catalog}>
+				Каталог: {type}
+			</UiTypography>
 			{has ? (
 				<ItemQntAction id={id}>{qnt}</ItemQntAction>
 			) : (
@@ -48,7 +52,7 @@ const Item = ({
 					onClick={() => {
 						if (session) addCartItem({ id, name: session.name, slug })
 						else {
-							navigate(ROUTES.PROFILE)
+							navigate('/profile')
 						}
 					}}
 				>

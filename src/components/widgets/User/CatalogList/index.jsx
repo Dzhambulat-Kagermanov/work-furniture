@@ -9,20 +9,22 @@ const CatalogList = ({ className, slug, ...props }) => {
 	const data = useMainData(dataSelector)[slug] || []
 
 	return (
-		<ul className={clsx(cls.wrapper, className)} {...props}>
+		<div className={clsx(cls.wrapper, className)} {...props}>
 			{data.length ? (
-				data.map(props => {
-					return <Item data={{ ...props }} key={props.id} />
-				})
+				<ul className={cls.list}>
+					{data.map(props => {
+						return <Item data={{ ...props }} key={props.id} />
+					})}
+				</ul>
 			) : (
-				<li className={cls.empty}>
+				<div className={cls.empty}>
 					<BrushCleaning />
 					<UiTypography font='Inter-R' Tag='h2'>
 						Каталог пуст
 					</UiTypography>
-				</li>
+				</div>
 			)}
-		</ul>
+		</div>
 	)
 }
 
