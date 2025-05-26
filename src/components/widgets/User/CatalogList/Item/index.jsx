@@ -7,6 +7,7 @@ import { UiButton } from '@shared/ui/UiButton'
 import {
 	addCartItemSelector,
 	cartHasItemSelector,
+	cartSelector,
 	useCart,
 } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
@@ -24,6 +25,7 @@ const Item = ({
 	const cartHasItem = useCart(cartHasItemSelector)
 	const addCartItem = useCart(addCartItemSelector)
 	const navigate = useNavigate()
+	const cart = useCart(cartSelector)
 
 	const has = cartHasItem({ name: session?.name, id })
 

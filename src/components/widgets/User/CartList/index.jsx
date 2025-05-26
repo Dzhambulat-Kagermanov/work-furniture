@@ -11,20 +11,22 @@ const CartList = ({ className, ...props }) => {
 	const cart = useCart(cartSelector)[session?.name] || []
 
 	return (
-		<ul className={clsx(cls.wrapper, className)} {...props}>
+		<div className={clsx(cls.wrapper, className)} {...props}>
 			{cart.length ? (
-				cart.map(data => {
-					return <Item data={data} key={data.id} />
-				})
+				<ul className={cls.list}>
+					{cart.map(data => {
+						return <Item data={data} key={data.id} />
+					})}
+				</ul>
 			) : (
-				<li className={cls.empty}>
+				<div className={cls.empty}>
 					<ShoppingBasket />
 					<UiTypography font='Inter-R' Tag='h2'>
 						Корзина пуста
 					</UiTypography>
-				</li>
+				</div>
 			)}
-		</ul>
+		</div>
 	)
 }
 

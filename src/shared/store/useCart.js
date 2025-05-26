@@ -25,7 +25,6 @@ export const useCart = create()((set, get) => ({
 			} else {
 				updatedItems = [...currentItems, { ...mainData, qnt: 1, slug }]
 			}
-			console.log(updatedItems)
 
 			const newCart = {
 				...cart,

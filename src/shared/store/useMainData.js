@@ -1,8 +1,9 @@
+import { DEFAULT_DATA } from '@shared/constants/default-data'
 import { STORAGE_MAIN_DATA } from '@shared/constants/localStorageKeys'
 import { create } from 'zustand'
 
 export const useMainData = create()((set, get) => ({
-	data: JSON.parse(localStorage.getItem(STORAGE_MAIN_DATA)) || null,
+	data: JSON.parse(localStorage.getItem(STORAGE_MAIN_DATA)) || DEFAULT_DATA,
 	currentEditItemId: null,
 	addDataToSlug: ({ data: { id, name, price, type }, slug }) => {
 		set(({ data }) => {
