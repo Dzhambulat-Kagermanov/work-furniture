@@ -1,5 +1,6 @@
 import { BurgerMenu } from '@modules/User/BurgerMenu'
 import { Header } from '@modules/User/Header'
+import { Footer } from '@modules/User/Footer'
 import { Outlet } from 'react-router-dom'
 
 const HeaderFooterBurgerMenu = () => {
@@ -8,6 +9,7 @@ const HeaderFooterBurgerMenu = () => {
 			<Header />
 			<BurgerMenu />
 			<Outlet />
+			<Footer />
 		</>
 	)
 }
