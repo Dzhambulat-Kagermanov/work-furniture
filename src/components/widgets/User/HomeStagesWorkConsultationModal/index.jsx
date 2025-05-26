@@ -10,10 +10,12 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { HOME_STAGES_WORK_CONSULTATION_SCHEMA } from '@shared/utils/validationSchemas'
 import { HOME_STAGES_WORK_CONSULTATION_SLUG } from '@shared/constants/modals-slugs'
+import { hideModalSelector, useModals } from '@shared/store/useModals'
 
 const SLUG = HOME_STAGES_WORK_CONSULTATION_SLUG
 
 const HomeStagesWorkConsultationModal = ({ className, ...props }) => {
+	const hideModal = useModals(hideModalSelector)
 	const {
 		formState: { errors },
 		register,
