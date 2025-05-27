@@ -10,13 +10,19 @@ const CatalogCard = ({
 	type,
 	price,
 	image,
+	frontClassName,
+	backClassName,
 	children,
 	...props
 }) => {
 	return (
 		<UiFlipper
-			frontClassName={cls.front}
-			backClassName={cls.back}
+			frontClassName={clsx(cls.front, frontClassName)}
+			backClassName={clsx(
+				cls.back,
+
+				backClassName
+			)}
 			Tag='li'
 			frontContent={
 				<>

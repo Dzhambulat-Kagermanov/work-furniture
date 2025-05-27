@@ -13,10 +13,11 @@ import {
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
 import { ROUTES } from '@shared/constants/routes'
 import { formatPrice } from '@shared/lib/formatPrice'
+import { CatalogCard } from '@widgets/shared/CatalogCard'
 
 const Item = ({
 	className,
-	data: { name, price, id, type, qnt, img },
+	data: { name, price, id, type, qnt, image },
 	onClick,
 	...props
 }) => {
@@ -30,22 +31,16 @@ const Item = ({
 	const has = cartHasItem({ name: session?.name, id })
 
 	return (
-		<li
+		<CatalogCard
+			frontClassName={cls.front}
+			backClassName={cls.back}
 			className={clsx(cls.wrapper, className)}
+			name={name}
+			image={image}
+			price={price}
+			type={type}
 			{...props}
-			onClick={e => {
-				onClick && onClick(e)
-			}}
 		>
-			<UiTypography font='Montserrat-SB' className={cls.name}>
-				{name}
-			</UiTypography>
-			<UiTypography Tag='strong' font='Montserrat-B' className={cls.price}>
-				{formatPrice(price)} ₽
-			</UiTypography>
-			<UiTypography font='Inter-R' className={cls.catalog}>
-				Каталог: {type}
-			</UiTypography>
 			{has ? (
 				<ItemQntAction id={id}>{qnt}</ItemQntAction>
 			) : (
@@ -61,7 +56,7 @@ const Item = ({
 					<UiTypography font='Montserrat-R'>В корзину</UiTypography>
 				</UiButton>
 			)}
-		</li>
+		</CatalogCard>
 	)
 }
 
