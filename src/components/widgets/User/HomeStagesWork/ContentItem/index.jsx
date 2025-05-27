@@ -2,19 +2,18 @@ import clsx from 'clsx'
 import { UiTypography } from '@shared/ui/UiTypography'
 import { UiButton } from '@shared/ui/UiButton'
 import cls from './index.module.scss'
-import { ROUTES } from '@shared/constants/routes'
-import { useNavigate } from 'react-router-dom'
+import { showModalSelector, useModals } from '@shared/store/useModals'
+import { HOME_STAGES_WORK_CONSULTATION_SLUG } from '@shared/constants/modals-slugs'
 
 const ContentItem = ({
 	className,
 	title,
 	count,
 	subtitle,
-	onClick,
 	btnText,
 	...props
 }) => {
-	const navigate = useNavigate()
+	const showModal = useModals(showModalSelector)
 	return (
 		<li className={clsx(cls.wrapper, className)} {...props}>
 			<UiTypography font='Montserrat-SB' Tag='h2' className={cls.title}>
@@ -25,8 +24,7 @@ const ContentItem = ({
 			</UiTypography>
 			<UiButton
 				onClick={e => {
-					console.log(onClick)
-					onClick ? onClick(e) : navigate(ROUTES.PREVIEW)
+					showModal({ slug: HOME_STAGES_WORK_CONSULTATION_SLUG })
 				}}
 				className={clsx(cls.btn, cls.item_btn)}
 			>

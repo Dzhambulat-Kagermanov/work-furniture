@@ -5,11 +5,11 @@ import { create } from 'zustand'
 export const useMainData = create()((set, get) => ({
 	data: JSON.parse(localStorage.getItem(STORAGE_MAIN_DATA)) || DEFAULT_DATA,
 	currentEditItemId: null,
-	addDataToSlug: ({ data: { id, name, price, type }, slug }) => {
+	addDataToSlug: ({ data: { id, name, price, type, image }, slug }) => {
 		set(({ data }) => {
 			const newData = {
 				...data,
-				[slug]: [...(data?.[slug] || []), { id, name, price, type }],
+				[slug]: [...(data?.[slug] || []), { id, name, price, type, image }],
 			}
 			localStorage.setItem(STORAGE_MAIN_DATA, JSON.stringify(newData))
 			return {
@@ -31,14 +31,14 @@ export const useMainData = create()((set, get) => ({
 			return { data: newData }
 		})
 	},
-	editDataToSlug: ({ data: { id, name, price, type }, slug }) => {
+	editDataToSlug: ({ data: { id, name, price, type, image }, slug }) => {
 		set(({ data }) => {
 			const newData = {
 				...data,
 				[slug]: [
 					...(data?.[slug] || []).map(props => {
 						if (props.id === id) {
-							return { id, name, price, type }
+							return { id, name, price, type, image }
 						}
 						return props
 					}),

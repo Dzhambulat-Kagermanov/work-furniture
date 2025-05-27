@@ -28,7 +28,6 @@ const ItemQntAction = ({ className, children, id, ...props }) => {
 				onClick={() => {
 					if (session) deleteItem({ id, name: session.name, slug })
 					else {
-						console.log(1)
 						navigate(ROUTES.PROFILE)
 					}
 				}}

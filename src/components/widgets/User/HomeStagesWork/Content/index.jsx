@@ -15,9 +15,6 @@ const Content = ({ className, ...props }) => {
 			</UiTypography>
 			<ul className={cls.content}>
 				<ContentItem
-					onClick={() => {
-						showModal({ slug: HOME_STAGES_WORK_CONSULTATION_SLUG })
-					}}
 					btnText='Проконсультироваться с дизайнером'
 					count={1}
 					subtitle='Давайте создадим ваше идеальное рабочее пространство! Мы вместе определим ваши потребности, оптимизируем планировку и составим подробный план вашего офиса'
