@@ -1,17 +1,16 @@
 import clsx from 'clsx'
 import cls from './index.module.scss'
-import { UiTypography } from '@shared/ui/UiTypography'
 import { ItemQntAction } from '../ItemQntActions'
 import { useNavigate } from 'react-router-dom'
 import { UiButton } from '@shared/ui/UiButton'
 import { Trash2 } from 'lucide-react'
 import { resetCartItemSelector, useCart } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
-import { formatPrice } from '@shared/lib/formatPrice'
+import { CatalogCard } from '@widgets/shared/CatalogCard'
 
 const Item = ({
 	className,
-	data: { name, price, id, type, qnt, slug },
+	data: { name, price, id, type, qnt, slug, image },
 	onClick,
 	...props
 }) => {
@@ -20,23 +19,16 @@ const Item = ({
 	const session = useAuth(sessionSelector)
 
 	return (
-		<li
+		<CatalogCard
+			frontClassName={cls.front}
+			backClassName={cls.back}
 			className={clsx(cls.wrapper, className)}
+			name={name}
+			image={image}
+			price={price}
+			type={type}
 			{...props}
-			onClick={e => {
-				onClick && onClick(e)
-				navigate('#')
-			}}
 		>
-			<UiTypography font='Montserrat-SB' className={cls.name}>
-				{name}
-			</UiTypography>
-			<UiTypography Tag='strong' font='Montserrat-B' className={cls.price}>
-				{formatPrice(price)} ₽
-			</UiTypography>
-			<UiTypography font='Inter-R' className={cls.catalog}>
-				Каталог: {type}
-			</UiTypography>
 			<div className={cls.actions}>
 				<ItemQntAction id={id} slug={slug}>
 					{qnt}
@@ -51,7 +43,7 @@ const Item = ({
 					<Trash2 />
 				</UiButton>
 			</div>
-		</li>
+		</CatalogCard>
 	)
 }
 

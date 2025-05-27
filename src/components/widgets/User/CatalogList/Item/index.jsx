@@ -11,8 +11,6 @@ import {
 	useCart,
 } from '@shared/store/useCart'
 import { sessionSelector, useAuth } from '@shared/store/useAuth'
-import { ROUTES } from '@shared/constants/routes'
-import { formatPrice } from '@shared/lib/formatPrice'
 import { CatalogCard } from '@widgets/shared/CatalogCard'
 
 const Item = ({
