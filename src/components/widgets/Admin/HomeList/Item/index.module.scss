@@ -23,7 +23,7 @@
 	&:hover {
 		background-size: 150%;
 		&::before {
-			backdrop-filter: blur(4px);
+			backdrop-filter: blur(3px);
 		}
 	}
 	& > h2 {
