@@ -16,6 +16,7 @@ import {
 import { SIDEBAR_SLUG } from '@shared/constants/modals-slugs'
 import { useEffect } from 'react'
 import { CATALOGS } from '@shared/constants/catalogs'
+import { PortalWrapper } from './PortalWrapper'
 
 const SLUG = SIDEBAR_SLUG
 
@@ -32,126 +33,130 @@ const Sidebar = ({ className, ...props }) => {
 	}, [])
 
 	return (
-		<aside
-			className={clsx(
-				cls.wrapper,
-				{ [cls.active]: modalState?.visibleState },
-				className
-			)}
-			{...props}
-		>
-			<div className={cls.header}>
-				<UiTypography font='Montserrat-SB' Tag='h2' className={cls.title}>
-					Каталоги
-				</UiTypography>
-				{screenWidth < MD_MID ? (
-					<UiButton
-						variant='ghost'
-						className={cls.close_btn}
-						onClick={() => {
-							hideModal({ slug: SLUG })
-						}}
-					>
-						<X />
-					</UiButton>
-				) : null}
-			</div>
-			<nav className={cls.nav}>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.HOME}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]: path === '/admin',
-					})}
-				>
-					Все
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.chairs.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/catalogs/${CATALOGS.chairs.key}`,
-					})}
-				>
-					{CATALOGS.chairs.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.tables.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/catalogs/${CATALOGS.tables.key}`,
-					})}
-				>
-					{CATALOGS.tables.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.storageSystems.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]:
-							path === `/admin/catalogs/${CATALOGS.storageSystems.key}`,
-					})}
-				>
-					{CATALOGS.storageSystems.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.upFurniture.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]:
-							path === `/admin/catalogs/${CATALOGS.upFurniture.key}`,
-					})}
-				>
-					{CATALOGS.upFurniture.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.partitions.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/catalogs/${CATALOGS.partitions.key}`,
-					})}
-				>
-					{CATALOGS.partitions.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.reception.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]: path === `/admin/catalogs/${CATALOGS.reception.key}`,
-					})}
-				>
-					{CATALOGS.reception.value}
-				</UiTypography>
-				<UiTypography
-					Tag={Link}
-					to={ROUTES.ADMIN.CATALOG(CATALOGS.accessories.key)}
-					font='Montserrat-R'
-					className={clsx(cls.link, {
-						[cls.active]:
-							path === `/admin/catalogs/${CATALOGS.accessories.key}`,
-					})}
-				>
-					{CATALOGS.accessories.value}
-				</UiTypography>
-			</nav>
-			<UiButton
-				variant='ghost'
-				className={cls.back_btn}
-				onClick={() => {
-					navigate(ROUTES.PROFILE)
-				}}
+		<PortalWrapper>
+			<aside
+				className={clsx(
+					cls.wrapper,
+					{ [cls.active]: modalState?.visibleState },
+					className
+				)}
+				{...props}
 			>
-				<SquareArrowLeft />
-				<UiTypography font='Inter-R'>Вернуться в профиль</UiTypography>
-			</UiButton>
-		</aside>
+				<div className={cls.header}>
+					<UiTypography font='Montserrat-SB' Tag='h2' className={cls.title}>
+						Каталоги
+					</UiTypography>
+					{screenWidth < MD_MID ? (
+						<UiButton
+							variant='ghost'
+							className={cls.close_btn}
+							onClick={() => {
+								hideModal({ slug: SLUG })
+							}}
+						>
+							<X />
+						</UiButton>
+					) : null}
+				</div>
+				<nav className={cls.nav}>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.HOME}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]: path === '/admin',
+						})}
+					>
+						Все
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.chairs.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]: path === `/admin/catalogs/${CATALOGS.chairs.key}`,
+						})}
+					>
+						{CATALOGS.chairs.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.tables.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]: path === `/admin/catalogs/${CATALOGS.tables.key}`,
+						})}
+					>
+						{CATALOGS.tables.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.storageSystems.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]:
+								path === `/admin/catalogs/${CATALOGS.storageSystems.key}`,
+						})}
+					>
+						{CATALOGS.storageSystems.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.upFurniture.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]:
+								path === `/admin/catalogs/${CATALOGS.upFurniture.key}`,
+						})}
+					>
+						{CATALOGS.upFurniture.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.partitions.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]:
+								path === `/admin/catalogs/${CATALOGS.partitions.key}`,
+						})}
+					>
+						{CATALOGS.partitions.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.reception.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]:
+								path === `/admin/catalogs/${CATALOGS.reception.key}`,
+						})}
+					>
+						{CATALOGS.reception.value}
+					</UiTypography>
+					<UiTypography
+						Tag={Link}
+						to={ROUTES.ADMIN.CATALOG(CATALOGS.accessories.key)}
+						font='Montserrat-R'
+						className={clsx(cls.link, {
+							[cls.active]:
+								path === `/admin/catalogs/${CATALOGS.accessories.key}`,
+						})}
+					>
+						{CATALOGS.accessories.value}
+					</UiTypography>
+				</nav>
+				<UiButton
+					variant='ghost'
+					className={cls.back_btn}
+					onClick={() => {
+						navigate(ROUTES.PROFILE)
+					}}
+				>
+					<SquareArrowLeft />
+					<UiTypography font='Inter-R'>Вернуться в профиль</UiTypography>
+				</UiButton>
+			</aside>
+		</PortalWrapper>
 	)
 }
 

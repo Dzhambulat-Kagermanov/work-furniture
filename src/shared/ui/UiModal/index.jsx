@@ -3,6 +3,7 @@ import { useBodyClassName } from '@shared/hooks/useBodyClassName'
 import { useModals } from '@shared/store/useModals'
 import clsx from 'clsx'
 import cls from './index.module.scss'
+import { createPortal } from 'react-dom'
 
 const UiModal = memo(
 	({
@@ -56,37 +57,40 @@ const UiModal = memo(
 
 		return (
 			<>
-				{mountedState ? (
-					<WrapperTag
-						onClick={handleClose}
-						className={clsx(
-							cls.wrapper,
-							{
-								[cls.active]: visibleState,
-								[cls.is_x_center]: isXCenter,
-							},
-							className
-						)}
-						style={{
-							transitionDuration: `${unmountDelay}ms`,
-						}}
-					>
-						<div className={cls.content_wrapper}>
-							<ContentTag
-								onClick={e => e.stopPropagation()}
+				{mountedState
+					? createPortal(
+							<WrapperTag
+								onClick={handleClose}
 								className={clsx(
-									cls.content,
+									cls.wrapper,
 									{
-										[cls.is_y_center]: isYCenter,
+										[cls.active]: visibleState,
+										[cls.is_x_center]: isXCenter,
 									},
-									contentClassName
+									className
 								)}
+								style={{
+									transitionDuration: `${unmountDelay}ms`,
+								}}
 							>
-								{children}
-							</ContentTag>
-						</div>
-					</WrapperTag>
-				) : null}
+								<div className={cls.content_wrapper}>
+									<ContentTag
+										onClick={e => e.stopPropagation()}
+										className={clsx(
+											cls.content,
+											{
+												[cls.is_y_center]: isYCenter,
+											},
+											contentClassName
+										)}
+									>
+										{children}
+									</ContentTag>
+								</div>
+							</WrapperTag>,
+							document.getElementById('overlay-container')
+					  )
+					: null}
 			</>
 		)
 	}
