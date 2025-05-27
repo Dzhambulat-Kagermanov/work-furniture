@@ -17,8 +17,19 @@ export const ADMIN_CATALOG_ADD_SCHEMA = Yup.object().shape({
 		.max(14, 'Имя слишком длинное, максимум 14 символов'),
 	price: Yup.string().required('Введите цену она обязательна'),
 	image: Yup.string()
-		.url('Вставьте корректную ссылку на изображение')
-		.required('Ссылка на картинку обязательна'),
+		.required('Ссылка на картинку обязательна')
+		.test(
+			'is-valid-url-or-path',
+			'Введите корректную ссылку или путь к изображению',
+			value => {
+				if (Yup.string().url().isValidSync(value)) {
+					return true
+				}
+
+				const pathRegex = /^(\.{0,2}\/)?[a-z0-9\-_\/]+(\.[a-z]+)?$/i
+				return pathRegex.test(value)
+			}
+		),
 })
 export const HOME_STAGES_WORK_CONSULTATION_SCHEMA = Yup.object().shape({
 	firstName: Yup.string()
