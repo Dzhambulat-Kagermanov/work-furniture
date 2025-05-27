@@ -33,6 +33,7 @@ const CatalogEditItemModal = ({ className, ...props }) => {
 		formState: { errors },
 		handleSubmit,
 		register,
+		reset,
 	} = useForm({
 		reValidateMode: 'onChange',
 		resolver: yupResolver(ADMIN_CATALOG_ADD_SCHEMA),
@@ -40,6 +41,9 @@ const CatalogEditItemModal = ({ className, ...props }) => {
 
 	return (
 		<UiModal
+			onClose={() => {
+				reset()
+			}}
 			className={clsx(cls.wrapper, className)}
 			isYCenter
 			isXCenter

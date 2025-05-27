@@ -50,8 +50,13 @@ const UiModal = memo(
 			if (unmountDelay) changeUnmountDelay({ slug, unmountDelay })
 		}, [])
 
+		useEffect(() => {
+			if (!mountedState) {
+				onClose && onClose()
+			}
+		}, [mountedState])
+
 		const handleClose = event => {
-			onClose && onClose(event)
 			!notModalClose && hideModal({ slug })
 		}
 
