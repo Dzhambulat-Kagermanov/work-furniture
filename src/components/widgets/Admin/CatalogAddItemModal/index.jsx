@@ -59,8 +59,11 @@ const CatalogAddItemModal = ({ className, ...props }) => {
 			</div>
 			<form
 				className={cls.form}
-				onSubmit={handleSubmit(({ name, price }) => {
-					addDataToSlug({ data: { id: nanoid(), name, price, type }, slug })
+				onSubmit={handleSubmit(({ name, price, image }) => {
+					addDataToSlug({
+						data: { id: nanoid(), name, price, type, image },
+						slug,
+					})
 
 					hideModal({ slug: SLUG })
 				})}
@@ -74,6 +77,13 @@ const CatalogAddItemModal = ({ className, ...props }) => {
 					label='Цена ₽'
 					inputProps={{ ...register('price'), type: 'number' }}
 					errorMessage={errors.price?.message}
+				/>
+				<UiInput
+					label='Ссылка на изображение'
+					inputProps={{
+						...register('image'),
+					}}
+					errorMessage={errors.image?.message}
 				/>
 				<UiButton className={cls.btn} type='submit'>
 					<UiTypography font='Montserrat-R'>Добавить</UiTypography>

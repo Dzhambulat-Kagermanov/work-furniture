@@ -61,9 +61,9 @@ const CatalogEditItemModal = ({ className, ...props }) => {
 			</div>
 			<form
 				className={cls.form}
-				onSubmit={handleSubmit(({ name, price }) => {
+				onSubmit={handleSubmit(({ name, price, image }) => {
 					if (data) {
-						editUser({ data: { ...data, name, price }, slug })
+						editUser({ data: { ...data, name, price, image }, slug })
 						hideModal({ slug: SLUG })
 					}
 				})}
@@ -81,6 +81,14 @@ const CatalogEditItemModal = ({ className, ...props }) => {
 						defaultValue: data?.price,
 					}}
 					errorMessage={errors.price?.message}
+				/>
+				<UiInput
+					label='Ссылка на изображение'
+					inputProps={{
+						...register('image'),
+						defaultValue: data?.image,
+					}}
+					errorMessage={errors.image?.message}
 				/>
 				<UiButton className={cls.btn} type='submit'>
 					<UiTypography font='Montserrat-R'>Изменить</UiTypography>

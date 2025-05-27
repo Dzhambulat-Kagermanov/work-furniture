@@ -16,6 +16,9 @@ export const ADMIN_CATALOG_ADD_SCHEMA = Yup.object().shape({
 		.min(2, 'Имя слишком короткое, минимум 2 символа')
 		.max(14, 'Имя слишком длинное, максимум 14 символов'),
 	price: Yup.string().required('Введите цену она обязательна'),
+	image: Yup.string()
+		.url('Вставьте корректную ссылку на изображение')
+		.required('Ссылка на картинку обязательна'),
 })
 export const HOME_STAGES_WORK_CONSULTATION_SCHEMA = Yup.object().shape({
 	firstName: Yup.string()
