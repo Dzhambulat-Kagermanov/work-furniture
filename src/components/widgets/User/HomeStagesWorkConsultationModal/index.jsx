@@ -20,6 +20,7 @@ const HomeStagesWorkConsultationModal = ({ className, ...props }) => {
 		formState: { errors },
 		register,
 		handleSubmit,
+		reset,
 	} = useForm({
 		reValidateMode: 'onChange',
 		resolver: yupResolver(HOME_STAGES_WORK_CONSULTATION_SCHEMA),
@@ -27,6 +28,9 @@ const HomeStagesWorkConsultationModal = ({ className, ...props }) => {
 
 	return (
 		<UiModal
+			onClose={() => {
+				reset()
+			}}
 			className={clsx(cls.wrapper, className)}
 			isYCenter
 			isXCenter
