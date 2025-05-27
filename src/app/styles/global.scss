@@ -19,7 +19,8 @@
 	--danger-H: rgb(156, 33, 33);
 
 	--modules-gap: 70px;
-	--header-height: 254px;
+	--page-layout-height: 254px;
+	--header-height: 71px;
 }
 
 * {
@@ -28,6 +29,7 @@
 
 @media screen and (min-width: 481px) {
 	body {
-		--header-height: 327px;
+		--header-height: 89px;
+		--page-layout-height: 327px;
 	}
 }
