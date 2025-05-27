@@ -47,6 +47,7 @@ const ProfileView = ({ className, session: { name, password }, ...props }) => {
 				</UiTypography>
 				{isAdmin ? (
 					<UiButton
+						className={cls.admin_open_btn}
 						onClick={() => {
 							navigate(ROUTES.ADMIN.HOME)
 						}}

@@ -1,13 +1,4 @@
 .wrapper {
-	display: flex;
-	column-gap: 20px;
-	align-items: center;
-	border-bottom: 2px solid var(--green100);
-	padding-bottom: 10px;
-	p,
-	strong {
-		min-width: 10%;
-	}
 }
 .btn {
 	display: flex;
@@ -16,9 +7,12 @@
 	padding: 8px;
 	transition: 0.2s ease;
 }
+.actions {
+	display: flex;
+	column-gap: inherit;
+}
 .edit_btn {
 	border-color: teal;
-	margin-left: auto;
 	color: teal;
 	&:hover {
 		background-color: teal;

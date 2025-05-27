@@ -1,5 +1,16 @@
 .wrapper {
 	padding: 40px 0;
+	.admin_open_btn {
+		padding: 12px 26px;
+		font-size: 16px;
+	}
+	.btn {
+		font-size: 16px;
+		max-width: 450px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 12px 26px;
+	}
 }
 .actions {
 	display: grid;
@@ -21,11 +32,6 @@
 	align-items: center;
 	flex-wrap: wrap;
 	row-gap: 20px;
-}
-.btn {
-	max-width: 450px;
-	width: 100%;
-	margin: 0 auto;
 }
 
 @media screen and (min-width: 481px) {

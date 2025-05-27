@@ -8,7 +8,7 @@ const ProfileScreen = props => {
 	const session = useAuth(sessionSelector)
 
 	return (
-		<UiContainer variant='shrink' className={cls.wrapper} {...props}>
+		<UiContainer variant='shrink' className={cls.wrapper} Tag='main' {...props}>
 			{session ? <ProfileView session={{ ...session }} /> : <ProfileAuth />}
 		</UiContainer>
 	)

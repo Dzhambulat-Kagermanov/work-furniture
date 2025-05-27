@@ -12,20 +12,23 @@ const CatalogList = ({ className, ...props }) => {
 	const data = useMainData(dataSelector)?.[dynamicParams]
 
 	return (
-		<ul className={clsx(cls.wrapper, className)} {...props}>
+		<div className={clsx(cls.wrapper, className)} {...props}>
 			{data?.length ? (
-				data.map(({ name, id, type, price }) => {
-					return (
-						<Item
-							key={id}
-							name={name}
-							id={id}
-							type={type}
-							price={price}
-							slug={dynamicParams}
-						/>
-					)
-				})
+				<ul className={cls.list}>
+					{data.map(({ name, id, type, price, image }) => {
+						return (
+							<Item
+								key={id}
+								name={name}
+								id={id}
+								type={type}
+								price={price}
+								image={image}
+								slug={dynamicParams}
+							/>
+						)
+					})}
+				</ul>
 			) : (
 				<li className={cls.empty}>
 					<BrushCleaning />
@@ -34,7 +37,7 @@ const CatalogList = ({ className, ...props }) => {
 					</UiTypography>
 				</li>
 			)}
-		</ul>
+		</div>
 	)
 }
 
